@@ -1,0 +1,568 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   Design tokens. Neutral ink-on-paper surfaces with one accent.
+   Dark mode is a selected set of steps, not an inversion.
+--------------------------------------------------------------------------- */
+:root {
+  /* Palette follows MetaView: white paper, green-black ink, mint washes. */
+  --bg: #ffffff;
+  --bg-subtle: #f6faf8;
+  --surface: #ffffff;
+  --surface-2: #f9fbfa;
+  --ink: #000805;
+  --ink-2: #1c2622;
+  --muted: #5f6763;
+  --faint: #8c928f;
+  --line: #e6ebe8;
+  --line-strong: #d3dbd7;
+  /* Accent (links, icons, active states): MetaView's deep green. */
+  --accent: #1f7a58;
+  --accent-hover: #17634a;
+  --accent-soft: #e8fff4;
+  --accent-ink: #ffffff;
+  /* Filled call-to-action: near-black green pill. */
+  --cta: #0a2119;
+  --cta-hover: #16382c;
+  --cta-ink: #ffffff;
+  --mint: #7afab2;
+  --success: #1a7f4e;
+  --success-soft: #e7f5ee;
+  --warning: #9a6200;
+  --warning-soft: #fdf3e1;
+  --danger: #b4232c;
+  --danger-soft: #fdeced;
+  --night: #0a2119;
+  --night-2: #0f2a20;
+  --night-line: #1e4c3c;
+
+  /* Chart tokens (validated with the data-viz palette checker) */
+  --chart-1: #d4401f;
+  --chart-2: #2a78d6;
+  --chart-3: #1baf7a;
+  --chart-4: #4a3aa7;
+  --chart-5: #eda100;
+  --chart-grid: #ededea;
+  --chart-axis: #8d9195;
+
+  --shadow-sm: 0 1px 2px rgb(12 13 13 / 0.04);
+  --shadow-md: 0 1px 2px rgb(12 13 13 / 0.04), 0 8px 24px -12px rgb(12 13 13 / 0.12);
+  --shadow-lg: 0 2px 4px rgb(12 13 13 / 0.04), 0 24px 48px -24px rgb(12 13 13 / 0.22);
+  color-scheme: light;
+}
+
+.dark {
+  /* Near-black with a whisper of green: calm, high contrast, clear layers. */
+  --bg: #0a0c0b;
+  --bg-subtle: #0e1110;
+  --surface: #121614;
+  --surface-2: #161b18;
+  --ink: #f1f5f3;
+  --ink-2: #c9d1cd;
+  --muted: #8e9893;
+  --faint: #626c67;
+  --line: #1f2522;
+  --line-strong: #2c3430;
+  /* Mint for links, icons and active states only. */
+  --accent: #6fe3a3;
+  --accent-hover: #8cecb7;
+  --accent-soft: #14231b;
+  --accent-ink: #06130c;
+  /* Filled buttons invert the light theme's dark pill. */
+  --cta: #eef5f1;
+  --cta-hover: #ffffff;
+  --cta-ink: #0a0c0b;
+  --mint: #7afab2;
+  --success: #3cc486;
+  --success-soft: #0f2419;
+  --warning: #e0a53a;
+  --warning-soft: #2a1f0c;
+  --danger: #f06b72;
+  --danger-soft: #2c1214;
+  --night: #151b18;
+  --night-2: #1a211d;
+  --night-line: #26302b;
+
+  --chart-1: #f0603c;
+  --chart-2: #3987e5;
+  --chart-3: #199e70;
+  --chart-4: #9085e9;
+  --chart-5: #c98500;
+  --chart-grid: #232627;
+  --chart-axis: #6f7478;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 28px -14px rgb(0 0 0 / 0.7);
+  --shadow-lg: 0 2px 4px rgb(0 0 0 / 0.4), 0 28px 56px -24px rgb(0 0 0 / 0.85);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+  --color-cta: var(--cta);
+  --color-cta-hover: var(--cta-hover);
+  --color-cta-ink: var(--cta-ink);
+  --color-mint: var(--mint);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-night: var(--night);
+  --color-night-2: var(--night-2);
+  --color-night-line: var(--night-line);
+
+  --font-sans: var(--font-sans-face), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --shadow-card: var(--shadow-sm);
+  --shadow-raised: var(--shadow-md);
+  --shadow-float: var(--shadow-lg);
+
+  --animate-fade-up: fade-up 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-fade-in: fade-in 0.3s ease-out both;
+  --animate-shimmer: shimmer 1.6s linear infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes shimmer {
+  from {
+    background-position: -200% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.48;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 1.5rem;
+    }
+  }
+  /* Type scale — medium-weight headings, tight tracking, comfortable body. */
+  .display {
+    font-size: clamp(2.75rem, 1.6rem + 4.6vw, 4.75rem);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+  }
+  .h1 {
+    font-size: clamp(2.35rem, 1.8rem + 2.2vw, 3.5rem);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+  }
+  .h2 {
+    font-size: clamp(1.85rem, 1.5rem + 1.4vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.06;
+    letter-spacing: -0.032em;
+  }
+  .h3 {
+    font-size: clamp(1.4rem, 1.25rem + 0.6vw, 1.75rem);
+    font-weight: 500;
+    line-height: 1.16;
+    letter-spacing: -0.022em;
+  }
+  .h4 {
+    font-size: 1.375rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+  }
+  .lead {
+    font-size: clamp(1.075rem, 1rem + 0.35vw, 1.25rem);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    height: 2.25rem;
+    padding-inline: 0.95rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink-2);
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition:
+      border-color 150ms,
+      color 150ms,
+      background-color 150ms;
+  }
+  .chip:hover {
+    border-color: var(--line-strong);
+    color: var(--ink);
+  }
+  .chip-active,
+  .chip-active:hover {
+    border-color: var(--cta);
+    background: var(--cta);
+    color: var(--cta-ink);
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum", "ss01";
+  }
+  .skeleton {
+    background: linear-gradient(90deg, var(--bg-subtle) 0%, var(--line) 50%, var(--bg-subtle) 100%);
+    background-size: 200% 100%;
+    animation: var(--animate-shimmer);
+    border-radius: 8px;
+  }
+  .dot-grid {
+    background-image: radial-gradient(var(--line-strong) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  /* Long-form tool explanations */
+  .prose-tool {
+    color: var(--ink-2);
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+  .prose-tool p + p {
+    margin-top: 0.9rem;
+  }
+  .prose-tool > ul:not(.not-prose) {
+    margin-top: 0.75rem;
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+  .prose-tool > ol:not(.not-prose) {
+    margin-top: 0.75rem;
+    list-style: decimal;
+    padding-left: 1.25rem;
+  }
+  .prose-tool li + li {
+    margin-top: 0.35rem;
+  }
+  .prose-tool strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .prose-tool code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: var(--bg-subtle);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 0.1em 0.35em;
+  }
+  .prose-tool a:not(:where(.not-prose, .not-prose *)) {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .prose-tool h2,
+  .prose-tool h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 1.05rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Checkerboard behind transparent images */
+.checker {
+  background-color: var(--surface-2);
+  background-image:
+    linear-gradient(45deg, var(--line) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--line) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--line) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--line) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Tints — soft washes taken from MetaView's palette. Each tool gets one
+   (plus a pattern) so every tool page has its own quiet backdrop.
+--------------------------------------------------------------------------- */
+.tint-mint { --tint-1: #f7fffb; --tint-2: #e8fff4; --tint-3: #cdfde2; --tint-ink: #1f7a58; }
+.tint-sky { --tint-1: #f5fbff; --tint-2: #e3f6ff; --tint-3: #c3eafe; --tint-ink: #2268b4; }
+.tint-sand { --tint-1: #fdfbf8; --tint-2: #f7f1e9; --tint-3: #efe2cf; --tint-ink: #8a5f2c; }
+.tint-mist { --tint-1: #f8f9fc; --tint-2: #edf0f7; --tint-3: #dde2ef; --tint-ink: #45558a; }
+.tint-aqua { --tint-1: #f5fdff; --tint-2: #e6fbff; --tint-3: #c9f3fd; --tint-ink: #0b7f99; }
+.dark .tint-mint { --tint-1: #0b100e; --tint-2: #0f1a15; --tint-3: #173a2b; --tint-ink: #6fe3a3; }
+.dark .tint-sky { --tint-1: #0a0e12; --tint-2: #0d1620; --tint-3: #16334e; --tint-ink: #8fcdf5; }
+.dark .tint-sand { --tint-1: #0f0d0b; --tint-2: #18140f; --tint-3: #3a2d1d; --tint-ink: #e4c49b; }
+.dark .tint-mist { --tint-1: #0c0d12; --tint-2: #12141f; --tint-3: #272d4a; --tint-ink: #aeb9ec; }
+.dark .tint-aqua { --tint-1: #0a0f11; --tint-2: #0c191d; --tint-3: #123a4a; --tint-ink: #7fdcf2; }
+
+/* ---------------------------------------------------------------------------
+   Demo animations (How it works). Short, subtle, and disabled by the
+   reduced-motion rule above.
+--------------------------------------------------------------------------- */
+@keyframes demo-pop {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes demo-grow-x {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes demo-grow-y {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+@keyframes demo-draw {
+  from { stroke-dashoffset: var(--len, 600); }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes demo-drop {
+  0% { opacity: 0; transform: translate(40px, -46px) rotate(-4deg); }
+  60% { opacity: 1; transform: translate(0, 4px) rotate(0); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes demo-cursor {
+  0% { opacity: 0; transform: translate(-70px, 40px); }
+  25% { opacity: 1; }
+  65% { transform: none; }
+  75% { transform: scale(0.86); }
+  85%, 100% { transform: none; opacity: 1; }
+}
+@keyframes demo-press {
+  0%, 68% { transform: none; }
+  75% { transform: scale(0.95); }
+  85%, 100% { transform: none; }
+}
+@keyframes demo-caret {
+  50% { opacity: 0; }
+}
+@keyframes demo-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes demo-shrink {
+  from { transform: scale(1); }
+  to { transform: scale(var(--to, 0.5)); }
+}
+.demo-pop { animation: demo-pop 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+.demo-grow-x { transform-origin: left; animation: demo-grow-x 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+.demo-grow-y { transform-origin: bottom; animation: demo-grow-y 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+.demo-draw { stroke-dasharray: var(--len, 600); animation: demo-draw 1.1s ease-out both; animation-delay: var(--d, 0ms); }
+.demo-drop { animation: demo-drop 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.demo-cursor { animation: demo-cursor 1.2s cubic-bezier(0.3, 0.7, 0.2, 1) both; }
+.demo-press { animation: demo-press 1.2s ease both; }
+.demo-caret { animation: demo-caret 1s steps(1) infinite; }
+.demo-progress { transform-origin: left; animation: demo-progress var(--dur, 3.6s) linear both; }
+
+/* Scene vocabulary — each tool's demo combines these differently. */
+@keyframes demo-scan-y { from { transform: translateY(-100%); } to { transform: translateY(100%); } }
+@keyframes demo-sweep-x { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+@keyframes demo-highlight { from { background-size: 0% 100%; } to { background-size: 100% 100%; } }
+@keyframes demo-ping { 0% { transform: scale(0.5); opacity: 0.55; } 100% { transform: scale(2.4); opacity: 0; } }
+@keyframes demo-fall {
+  from { opacity: 0; transform: translate(var(--fx, 0), -60px) rotate(var(--fr, -12deg)); }
+  70% { opacity: 1; }
+  to { opacity: 1; transform: none; }
+}
+@keyframes demo-float {
+  0% { opacity: 0; transform: translateY(24px) scale(0.9); }
+  20% { opacity: 1; transform: translateY(0) scale(1); }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-80px) scale(0.96); }
+}
+@keyframes demo-fan { from { transform: none; } to { transform: translate(var(--fx, 0), var(--fy, 0)) rotate(var(--fr, 0deg)); } }
+@keyframes demo-flip { from { transform: rotateX(90deg); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes demo-needle { from { transform: rotate(var(--from, -90deg)); } to { transform: rotate(var(--to, 30deg)); } }
+@keyframes demo-shake {
+  0%, 100% { transform: none; }
+  20% { transform: translateX(-4px) rotate(-1deg); }
+  40% { transform: translateX(4px) rotate(1deg); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(2px); }
+}
+@keyframes demo-blur-in { from { filter: blur(10px); opacity: 0.3; transform: scale(1.04); } to { filter: none; opacity: 1; transform: none; } }
+@keyframes demo-slide-l { from { opacity: 0; transform: translateX(-36px); } to { opacity: 1; transform: none; } }
+@keyframes demo-slide-r { from { opacity: 0; transform: translateX(36px); } to { opacity: 1; transform: none; } }
+@keyframes demo-drag { from { transform: translateX(var(--from, 0)); } to { transform: translateX(var(--to, 0)); } }
+@keyframes demo-swing { 0% { transform: rotate(-14deg); } 50% { transform: rotate(8deg); } 75% { transform: rotate(-4deg); } 100% { transform: none; } }
+@keyframes demo-spin { to { transform: rotate(360deg); } }
+@keyframes demo-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes demo-toast { from { opacity: 0; transform: translateY(14px) scale(0.96); } to { opacity: 1; transform: none; } }
+@keyframes demo-width { from { width: var(--from-w, 0%); } to { width: var(--to-w, 100%); } }
+
+.demo-scan-y { animation: demo-scan-y 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite; animation-delay: var(--d, 0ms); }
+.demo-sweep-x { animation: demo-sweep-x 1s cubic-bezier(0.4, 0, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+.demo-highlight {
+  background-image: linear-gradient(var(--mint), var(--mint));
+  background-repeat: no-repeat;
+  animation: demo-highlight 0.9s ease-out both;
+  animation-delay: var(--d, 0ms);
+}
+.demo-ping { animation: demo-ping 1.8s cubic-bezier(0.2, 0.6, 0.3, 1) infinite; animation-delay: var(--d, 0ms); }
+.demo-fall { animation: demo-fall 0.8s cubic-bezier(0.2, 0.8, 0.2, 1.1) both; animation-delay: var(--d, 0ms); }
+.demo-float { animation: demo-float 2.6s ease-in-out both; animation-delay: var(--d, 0ms); }
+.demo-fan { animation: demo-fan 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+.demo-flip { animation: demo-flip 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: var(--d, 0ms); transform-origin: 50% 70%; }
+.demo-needle { transform-origin: 50% 100%; animation: demo-needle 1.1s cubic-bezier(0.3, 1.3, 0.4, 1) both; animation-delay: var(--d, 0ms); }
+.demo-shake { animation: demo-shake 0.6s ease-in-out both; animation-delay: var(--d, 0ms); }
+.demo-blur-in { animation: demo-blur-in 0.9s ease-out both; animation-delay: var(--d, 0ms); }
+.demo-slide-l { animation: demo-slide-l 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+.demo-slide-r { animation: demo-slide-r 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+.demo-drag { animation: demo-drag 1.1s cubic-bezier(0.5, 0, 0.3, 1) both; animation-delay: var(--d, 0ms); }
+.demo-swing { transform-origin: 50% 0; animation: demo-swing 1s ease-out both; animation-delay: var(--d, 0ms); }
+.demo-spin { animation: demo-spin var(--dur, 2.4s) linear infinite; }
+.demo-bob { animation: demo-bob 2s ease-in-out infinite; animation-delay: var(--d, 0ms); }
+.demo-toast { animation: demo-toast 0.4s cubic-bezier(0.2, 0.8, 0.2, 1.2) both; animation-delay: var(--d, 0ms); }
+.demo-width { animation: demo-width 1.1s cubic-bezier(0.3, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+
+/* How each tool's stage moves between steps. */
+.stage-rise { animation: demo-pop 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.stage-slide { animation: demo-slide-r 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.stage-zoom { animation: stage-zoom 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.stage-flip { animation: stage-flip 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both; transform-origin: 50% 50%; }
+.stage-blur { animation: demo-blur-in 0.6s ease-out both; }
+.stage-drop { animation: stage-drop 0.55s cubic-bezier(0.2, 0.8, 0.2, 1.15) both; }
+@keyframes stage-zoom { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: none; } }
+@keyframes stage-flip { from { opacity: 0; transform: perspective(900px) rotateY(-24deg); } to { opacity: 1; transform: none; } }
+@keyframes stage-drop { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: none; } }
+.demo-ring { animation: demo-draw 1.1s cubic-bezier(0.3, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+.demo-shrink { animation: demo-shrink 1.5s cubic-bezier(0.5, 0, 0.3, 1) both; animation-delay: var(--d, 0ms); }
+
+/* ---------------------------------------------------------------------------
+   Long-form articles. Only direct content is styled, so embedded components
+   (tool CTAs, tables, figures) keep their own design.
+--------------------------------------------------------------------------- */
+.prose-article {
+  color: var(--ink-2);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+.prose-article > * + * {
+  margin-top: 1.1em;
+}
+.prose-article > h3 {
+  margin-top: 1.8em;
+  color: var(--ink);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+.prose-article > ul:not(.not-prose),
+.prose-article > ol:not(.not-prose) {
+  padding-left: 1.3rem;
+}
+.prose-article > ul:not(.not-prose) { list-style: disc; }
+.prose-article > ol:not(.not-prose) { list-style: decimal; }
+.prose-article > ul > li + li,
+.prose-article > ol > li + li {
+  margin-top: 0.45em;
+}
+.prose-article li::marker { color: var(--faint); }
+.prose-article strong { color: var(--ink); font-weight: 600; }
+.prose-article a:not(:where(.not-prose, .not-prose *)) {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.prose-article a:not(:where(.not-prose, .not-prose *)):hover { text-decoration-thickness: 2px; }
+.prose-article code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: var(--bg-subtle);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.1em 0.35em;
+  overflow-wrap: anywhere;
+}

@@ -1,0 +1,154 @@
+// Viewlab data model.
+// Public YouTube data only. Users are anonymous visitors identified by a cookie;
+// real authentication can be layered onto `User` later without schema churn.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// Anonymous visitor (cookie `vl_vid`). Email is reserved for future auth.
+model User {
+  id         String   @id @default(cuid())
+  email      String?  @unique
+  createdAt  DateTime @default(now())
+  lastSeenAt DateTime @default(now())
+
+  trackedChannels  TrackedChannel[]
+  competitors      Competitor[]
+  audits           Audit[]
+  commentAnalyses  CommentAnalysis[]
+}
+
+/// Latest known public details for a YouTube channel. `id` is the YouTube channel ID.
+model Channel {
+  id                String    @id
+  title             String
+  handle            String?
+  description       String    @default("")
+  thumbnailUrl      String?
+  country           String?
+  publishedAt       DateTime
+  uploadsPlaylistId String?
+  /// null when the channel hides its subscriber count
+  subscriberCount   BigInt?
+  viewCount         BigInt
+  videoCount        Int
+  lastFetchedAt     DateTime  @default(now())
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  snapshots   ChannelSnapshot[]
+  trackedBy   TrackedChannel[]
+  competitors Competitor[]
+  videos      Video[]
+  audits      Audit[]
+}
+
+/// Point-in-time public statistics. Only real observations are stored — never interpolated.
+model ChannelSnapshot {
+  id              String   @id @default(cuid())
+  channelId       String
+  subscriberCount BigInt?
+  videoCount      Int
+  viewCount       BigInt
+  capturedAt      DateTime @default(now())
+
+  channel Channel @relation(fields: [channelId], references: [id], onDelete: Cascade)
+
+  @@index([channelId, capturedAt])
+}
+
+/// A channel a visitor saved in the Channel Tracker.
+model TrackedChannel {
+  id        String   @id @default(cuid())
+  userId    String
+  channelId String
+  createdAt DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  channel Channel @relation(fields: [channelId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, channelId])
+  @@index([channelId])
+}
+
+/// A channel in a visitor's competitor comparison set.
+model Competitor {
+  id        String   @id @default(cuid())
+  userId    String
+  channelId String
+  /// Stable display order (also drives chart color assignment)
+  position  Int      @default(0)
+  createdAt DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  channel Channel @relation(fields: [channelId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, channelId])
+  @@index([channelId])
+}
+
+model Video {
+  id              String    @id
+  channelId       String
+  title           String
+  publishedAt     DateTime
+  durationSeconds Int?
+  thumbnailUrl    String?
+  viewCount       BigInt?
+  likeCount       BigInt?
+  commentCount    BigInt?
+  lastFetchedAt   DateTime  @default(now())
+
+  channel   Channel         @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  snapshots VideoSnapshot[]
+
+  @@index([channelId, publishedAt])
+}
+
+model VideoSnapshot {
+  id           String   @id @default(cuid())
+  videoId      String
+  viewCount    BigInt?
+  likeCount    BigInt?
+  commentCount BigInt?
+  capturedAt   DateTime @default(now())
+
+  video Video @relation(fields: [videoId], references: [id], onDelete: Cascade)
+
+  @@index([videoId, capturedAt])
+}
+
+/// Saved result of a Channel Audit (computed metrics as JSON).
+model Audit {
+  id        String   @id @default(cuid())
+  userId    String?
+  channelId String
+  summary   Json
+  createdAt DateTime @default(now())
+
+  user    User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+  channel Channel @relation(fields: [channelId], references: [id], onDelete: Cascade)
+
+  @@index([channelId, createdAt])
+}
+
+/// Saved result of a Comment Analysis. Stores aggregates, not raw comment text.
+model CommentAnalysis {
+  id           String   @id @default(cuid())
+  userId       String?
+  videoId      String?
+  source       String
+  commentCount Int
+  result       Json
+  createdAt    DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([videoId])
+}

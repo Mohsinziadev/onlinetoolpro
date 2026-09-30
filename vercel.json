@@ -1,0 +1,228 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/tools/thumbnail-analyzer",
+      "destination": "/youtube-tools/thumbnail-analyzer",
+      "permanent": true
+    },
+    {
+      "source": "/tools/thumbnail-preview",
+      "destination": "/youtube-tools/thumbnail-preview",
+      "permanent": true
+    },
+    {
+      "source": "/tools/thumbnail-readability",
+      "destination": "/youtube-tools/thumbnail-readability",
+      "permanent": true
+    },
+    {
+      "source": "/tools/thumbnail-safe-zone",
+      "destination": "/youtube-tools/thumbnail-safe-zone",
+      "permanent": true
+    },
+    {
+      "source": "/tools/channel-audit",
+      "destination": "/youtube-tools/channel-audit",
+      "permanent": true
+    },
+    {
+      "source": "/tools/channel-tracker",
+      "destination": "/youtube-tools/channel-tracker",
+      "permanent": true
+    },
+    {
+      "source": "/tools/competitor-tracker",
+      "destination": "/youtube-tools/competitor-tracker",
+      "permanent": true
+    },
+    {
+      "source": "/tools/video-comparison",
+      "destination": "/youtube-tools/video-comparison",
+      "permanent": true
+    },
+    {
+      "source": "/tools/comment-analyzer",
+      "destination": "/youtube-tools/comment-analyzer",
+      "permanent": true
+    },
+    {
+      "source": "/tools/content-gap-finder",
+      "destination": "/youtube-tools/content-gap-finder",
+      "permanent": true
+    },
+    {
+      "source": "/tools/rpm-calculator",
+      "destination": "/youtube-tools/rpm-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tools/cpm-calculator",
+      "destination": "/youtube-tools/cpm-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tools/watch-time-calculator",
+      "destination": "/youtube-tools/watch-time-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tools/engagement-calculator",
+      "destination": "/youtube-tools/engagement-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tools/video-id-finder",
+      "destination": "/youtube-tools/video-id-finder",
+      "permanent": true
+    },
+    {
+      "source": "/tools/timestamp-generator",
+      "destination": "/youtube-tools/timestamp-generator",
+      "permanent": true
+    },
+    {
+      "source": "/tools/youtube-revenue-calculator",
+      "destination": "/youtube-tools/revenue-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tools/youtube",
+      "destination": "/youtube-tools",
+      "permanent": true
+    },
+    {
+      "source": "/tools/youtube/:tool",
+      "destination": "/youtube-tools/:tool",
+      "permanent": true
+    },
+    {
+      "source": "/tools/text",
+      "destination": "/text-tools",
+      "permanent": true
+    },
+    {
+      "source": "/tools/text/:tool",
+      "destination": "/text-tools/:tool",
+      "permanent": true
+    },
+    {
+      "source": "/tools/image",
+      "destination": "/image-tools",
+      "permanent": true
+    },
+    {
+      "source": "/tools/image/:tool",
+      "destination": "/image-tools/:tool",
+      "permanent": true
+    },
+    {
+      "source": "/tools/pdf",
+      "destination": "/pdf-tools",
+      "permanent": true
+    },
+    {
+      "source": "/tools/pdf/:tool",
+      "destination": "/pdf-tools/:tool",
+      "permanent": true
+    },
+    {
+      "source": "/tools/social-media",
+      "destination": "/social-media-tools",
+      "permanent": true
+    },
+    {
+      "source": "/tools/social-media/:tool",
+      "destination": "/social-media-tools/:tool",
+      "permanent": true
+    },
+    {
+      "source": "/tools/developer",
+      "destination": "/developer-tools",
+      "permanent": true
+    },
+    {
+      "source": "/tools/developer/:tool",
+      "destination": "/developer-tools/:tool",
+      "permanent": true
+    },
+    {
+      "source": "/tools/marketing",
+      "destination": "/marketing-tools",
+      "permanent": true
+    },
+    {
+      "source": "/tools/marketing/:tool",
+      "destination": "/marketing-tools/:tool",
+      "permanent": true
+    },
+    {
+      "source": "/tools/productivity",
+      "destination": "/productivity-tools",
+      "permanent": true
+    },
+    {
+      "source": "/tools/productivity/:tool",
+      "destination": "/productivity-tools/:tool",
+      "permanent": true
+    },
+    {
+      "source": "/tools/calculators",
+      "destination": "/calculators",
+      "permanent": true
+    },
+    {
+      "source": "/tools/calculators/:tool",
+      "destination": "/calculators/:tool",
+      "permanent": true
+    },
+    {
+      "source": "/tools/seo",
+      "destination": "/seo-tools",
+      "permanent": true
+    },
+    {
+      "source": "/tools/seo/:tool",
+      "destination": "/seo-tools/:tool",
+      "permanent": true
+    },
+    {
+      "source": "/categories/:category",
+      "destination": "/:category",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/blog/page/1",
+      "destination": "/blog",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    }
+  ]
+}
