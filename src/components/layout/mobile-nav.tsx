@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react";
 import { HeroSearch } from "@/components/search/hero-search";
 import { ToolIcon, ToolIconTile } from "@/components/tool-icon";
 import { companyLinks, legalLinks, resourceLinks } from "@/lib/nav";
-import { activeCategories, categoryHref, liveCount, popularTools, toolHref, upcomingCategories } from "@/lib/catalog";
+import { categoryHref, laterCategories, liveCount, navCategories, popularTools, toolHref } from "@/lib/catalog";
 
 /** Mobile menu, ordered for discovery: search → categories → popular tools → all tools → resources. */
 export function MobileNav() {
@@ -51,21 +51,29 @@ export function MobileNav() {
             <div>
               <p className="eyebrow mb-3">Categories</p>
               <ul className="grid grid-cols-2 gap-2">
-                {activeCategories.map((c) => {
+                {navCategories.map((c) => {
                   const count = liveCount(c.slug);
                   return (
                     <li key={c.slug}>
-                      <Link href={categoryHref(c)} className="flex items-center gap-2.5 rounded-xl border border-line bg-surface p-3 text-[15px] text-ink">
-                        <ToolIcon name={c.icon} className={count ? "text-accent" : "text-faint"} />
-                        <span className="min-w-0 flex-1 truncate">{c.name}</span>
-                        {count ? null : <span className="text-[11px] text-muted">Soon</span>}
-                      </Link>
+                      {count ? (
+                        <Link href={categoryHref(c)} className="flex items-center gap-2.5 rounded-xl border border-line bg-surface p-3 text-[15px] text-ink">
+                          <ToolIcon name={c.icon} className="text-accent" />
+                          <span className="min-w-0 flex-1 truncate">{c.name}</span>
+                        </Link>
+                      ) : (
+                        // Coming soon: shown, but there's no page to open yet.
+                        <div aria-disabled className="flex items-center gap-2.5 rounded-xl border border-dashed border-line-strong p-3 text-[15px] text-ink-2">
+                          <ToolIcon name={c.icon} className="text-faint" />
+                          <span className="min-w-0 flex-1 truncate">{c.name}</span>
+                          <span className="text-[11px] text-muted">Soon</span>
+                        </div>
+                      )}
                     </li>
                   );
                 })}
               </ul>
-              {upcomingCategories.length ? (
-                <p className="mt-3 text-[13px] text-muted">Coming later: {upcomingCategories.map((c) => c.name).join(", ")}.</p>
+              {laterCategories.length ? (
+                <p className="mt-3 text-[13px] text-muted">Coming later: {laterCategories.map((c) => c.name).join(", ")}.</p>
               ) : null}
             </div>
 

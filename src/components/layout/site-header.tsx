@@ -12,7 +12,7 @@ import { ToolIconTile } from "@/components/tool-icon";
 import { BackdropPanel } from "@/components/visual/backdrop";
 import { companyLinks, legalLinks, resourceLinks } from "@/lib/nav";
 import { KIND_LABEL, latestPosts, postHref } from "@/lib/blog/posts";
-import { activeCategories, categoryHref, getCategory, getTool, liveCount, newTools, popularTools, toolHref, upcomingCategories } from "@/lib/catalog";
+import { activeCategories, categoryHref, getCategory, getTool, laterCategories, liveCount, navCategories, newTools, popularTools, toolHref, toolsIn } from "@/lib/catalog";
 import { toolBackdrop, categoryBackdrop } from "@/lib/catalog/visuals";
 import { cn, toolCount } from "@/lib/utils";
 
@@ -116,21 +116,39 @@ function MenuPanel({ id, close }: { id: MenuId; close: () => void }) {
     return (
       <div className="grid grid-cols-[minmax(0,2fr)_280px] divide-x divide-line">
         <Column label="Tool categories">
-          {/* Only categories that actually have tools. */}
+          {/* Categories with tools, plus any flagged to show early as "Coming soon". */}
           <div className="grid grid-cols-2 gap-x-6 gap-y-2">
-            {activeCategories.map((c) => (
-              <PanelItem
-                key={c.slug}
-                href={categoryHref(c)}
-                title={c.title}
-                description={`${toolCount(liveCount(c.slug))} · ${c.description}`}
-                icon={<ToolIconTile name={c.icon} tone="tint" tint={categoryBackdrop(c).tint} />}
-                onPick={close}
-              />
-            ))}
+            {navCategories.map((c) =>
+              liveCount(c.slug) ? (
+                <PanelItem
+                  key={c.slug}
+                  href={categoryHref(c)}
+                  title={c.title}
+                  description={`${toolCount(liveCount(c.slug))} · ${c.description}`}
+                  icon={<ToolIconTile name={c.icon} tone="tint" tint={categoryBackdrop(c).tint} />}
+                  onPick={close}
+                />
+              ) : (
+                <div key={c.slug} className="-mx-2 flex items-start gap-3.5 rounded-xl p-2" aria-disabled>
+                  <ToolIconTile name={c.icon} tone="tint" tint={categoryBackdrop(c).tint} />
+                  <span className="min-w-0">
+                    <span className="flex items-center gap-2 text-[16px] leading-snug text-ink">
+                      {c.title}
+                      <span className="rounded-full bg-cta px-2 py-0.5 text-[10.5px] font-medium tracking-[0.02em] text-cta-ink">Coming soon</span>
+                    </span>
+                    <span className="mt-0.5 block text-[13px] leading-snug text-muted">
+                      {toolsIn(c.slug)
+                        .slice(0, 3)
+                        .map((t) => t.name.replace(/^AI /, ""))
+                        .join(" · ")}
+                    </span>
+                  </span>
+                </div>
+              ),
+            )}
           </div>
-          {upcomingCategories.length ? (
-            <p className="mt-6 border-t border-line pt-4 text-[13px] text-muted">Coming later: {upcomingCategories.map((c) => c.name).join(", ")}.</p>
+          {laterCategories.length ? (
+            <p className="mt-6 border-t border-line pt-4 text-[13px] text-muted">Coming later: {laterCategories.map((c) => c.name).join(", ")}.</p>
           ) : null}
         </Column>
         {featured ? (

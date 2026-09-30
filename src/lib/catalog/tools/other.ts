@@ -8,6 +8,14 @@ const added = "2026-09-30";
 const updatedAt = "2026-09-30";
 
 export const otherTools: Tool[] = [
+  /* ——— AI (planned — these need a server-side AI model) ——— */
+  { slug: "text-summarizer", category: "ai", name: "AI Text Summarizer", description: "Turn a long article or document into a short, clear summary.", icon: "letters", status: "coming-soon", keywords: ["ai", "summarize", "summary", "tl;dr", "shorten text"] },
+  { slug: "paraphraser", category: "ai", name: "AI Paraphraser", description: "Rewrite a sentence or paragraph in clearer, fresher words.", icon: "pen", status: "coming-soon", keywords: ["ai", "paraphrase", "rewrite", "reword"] },
+  { slug: "grammar-checker", category: "ai", name: "AI Grammar Checker", description: "Fix spelling, grammar and punctuation mistakes.", icon: "type", status: "coming-soon", keywords: ["ai", "grammar", "spelling", "proofread"] },
+  { slug: "background-remover", category: "ai", name: "AI Background Remover", description: "Remove the background from a photo in one click.", icon: "wand", status: "coming-soon", keywords: ["ai", "remove background", "transparent background", "cut out"] },
+  { slug: "image-caption-generator", category: "ai", name: "AI Image Caption Generator", description: "Get a description or alt text for any image.", icon: "image", status: "coming-soon", keywords: ["ai", "caption", "alt text", "describe image"] },
+  { slug: "title-generator", category: "ai", name: "AI Title Generator", description: "Get catchy title ideas for videos, blog posts and emails.", icon: "heading", status: "coming-soon", keywords: ["ai", "title ideas", "headline", "blog title"] },
+
   /* ——— Text ——— */
   {
     slug: "word-counter",

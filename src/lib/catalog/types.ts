@@ -106,6 +106,8 @@ export type Category = {
   icon: IconName;
   /** Lower comes first everywhere categories are listed */
   order: number;
+  /** Show in the menus even before it has live tools (marked "Coming soon", not linked) */
+  showInNav?: boolean;
   /**
    * Optional sub-groups used to organise "All tools" on big categories.
    * Tools reference a group by id; tools without a group fall into "Other".

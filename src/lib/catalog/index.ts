@@ -88,6 +88,10 @@ export function liveCount(category: string): number {
 /** Categories that have at least one live tool, in display order. */
 export const activeCategories = categories.filter((c) => liveCount(c.slug) > 0);
 export const upcomingCategories = categories.filter((c) => liveCount(c.slug) === 0);
+/** Categories shown in menus: those with tools, plus any flagged to appear early ("Coming soon"). */
+export const navCategories = categories.filter((c) => liveCount(c.slug) > 0 || c.showInNav);
+/** Planned categories not shown in menus yet — mentioned as "coming later". */
+export const laterCategories = upcomingCategories.filter((c) => !c.showInNav);
 
 /**
  * Tools marked popular. Within one category, in catalog order; across the whole

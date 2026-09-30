@@ -7,6 +7,18 @@ import type { Category } from "@/lib/catalog/types";
  */
 export const categories: Category[] = [
   {
+    slug: "ai",
+    path: "ai-tools",
+    name: "AI",
+    title: "AI Tools",
+    description: "Summarise, rewrite and create with AI.",
+    intro: "Smart helpers for writing, images and ideas — powered by AI.",
+    icon: "ai",
+    // First in every list. AI tools need a server-side model, so they're coming soon on this static site.
+    order: 0,
+    showInNav: true,
+  },
+  {
     slug: "youtube",
     path: "youtube-tools",
     name: "YouTube",
