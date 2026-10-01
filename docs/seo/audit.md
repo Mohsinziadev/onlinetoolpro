@@ -12,14 +12,14 @@ What was checked, what was changed, and what still needs a decision. Re-run the 
   - FAQs, related tools and the keyword map
 
   Blog metadata is in `src/lib/blog/posts.ts`.
-- **Public URLs (75 indexable):**
+- **Public URLs (108 indexable, after the October tool additions):**
 
   | Kind | Count | Pattern |
   |---|---|---|
   | Home | 1 | `/` |
   | All tools | 1 | `/tools` |
   | Categories with live tools | 11 | `/image-tools`, `/pdf-tools`, … |
-  | Live tools | 58 | `/<category>/<tool>`, e.g. `/pdf-tools/merge` |
+  | Live tools | 83 | `/<category>/<tool>`, e.g. `/pdf-tools/merge` |
   | Blog index and articles | 1 + 4 | `/blog`, `/blog/<slug>` |
   | Site and trust pages | 7 | `/about`, `/contact`, `/faq`, `/how-it-works`, `/privacy-policy`, `/terms`, `/disclaimer` |
 
@@ -82,15 +82,17 @@ The structure stays as it is:
 
 ## Frontend-only vs backend
 
-**All 58 live tools run entirely in the browser.** The only external request is the thumbnail downloader loading public images from `i.ytimg.com`.
+**All 83 live tools run entirely in the browser.** The only external request is the thumbnail downloader loading public images from `i.ytimg.com`. Heavy libraries (pdf.js, pdf-lib, the HEIC decoder) load only when a tool that needs them is used.
 
-These 20 are listed as "Coming soon", aren't linked, and have no page:
+These are listed as "Coming soon", aren't linked, and have no page:
 
 | Tools | Why not live | Needs |
 |---|---|---|
 | YouTube: channel ID finder, metadata extractor, tag extractor, SEO checker, channel audit, channel/competitor tracker, video comparison, content gap finder | Need YouTube Data API data | Backend + API key (code kept in `backend-archive/`) |
 | YouTube title generator, thumbnail generator; AI: summarizer, paraphraser, grammar checker, background remover, caption generator, title generator | Need an AI model | Backend + model API, or in-browser models (large downloads) |
 | PDF compressor | Real compression needs re-encoding embedded images (e.g. Ghostscript) | Server, or a large WebAssembly build |
+| PDF to Word, Word to PDF | Faithful layout conversion needs a document engine | Server (e.g. LibreOffice) or a paid API |
+| Image to Text (OCR) | Possible in the browser (tesseract.js) but downloads ~10 MB of language data | Large in-browser download, or a server |
 | Social media: hashtag counter, bio formatter | **Not a technical limit — these can run in the browser** | Just need building. Quick wins that would also make the Social Media category live |
 
 ## Monetization readiness

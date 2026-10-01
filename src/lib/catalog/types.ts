@@ -80,7 +80,29 @@ export type IconName =
   | "copy-minus"
   | "pilcrow"
   | "swatch"
-  | "file-stack";
+  | "file-stack"
+  | "rotate"
+  | "file-digit"
+  | "stamp"
+  | "signature"
+  | "convert"
+  | "scale"
+  | "bank"
+  | "house"
+  | "piggy"
+  | "graduation"
+  | "receipt"
+  | "flame"
+  | "calendar-range"
+  | "alarm"
+  | "pinwheel"
+  | "keyboard"
+  | "ruler"
+  | "globe"
+  | "volume"
+  | "italic"
+  | "file-type"
+  | "scan-text";
 
 export type ToolStatus = "live" | "beta" | "coming-soon";
 

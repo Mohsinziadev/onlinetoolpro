@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ArrowDown, ArrowUp, FileText, Loader2, X } from "lucide-react";
 import { Choice, DownloadButton, ErrorNote, FieldLabel, FileDrop, Panel, Slider, baseName, canvasToBlob, readImage, saveBlob } from "@/components/kit";
 import { formatBytes } from "@/lib/utils";
+import { parseRanges } from "@/lib/pdf/ranges";
 
 /** pdf-lib is loaded only when a PDF tool is actually used. */
 const loadPdfLib = () => import("pdf-lib");
@@ -131,19 +132,6 @@ export function PdfMerger() {
 /* ——— Split ——— */
 
 /** "1-3, 5, 8-" → zero-based page indexes, in order, without duplicates. */
-function parseRanges(input: string, max: number): number[] | string {
-  const out: number[] = [];
-  for (const part of input.split(",").map((p) => p.trim()).filter(Boolean)) {
-    const m = /^(\d+)?\s*(-)?\s*(\d+)?$/.exec(part);
-    if (!m || (!m[1] && !m[3])) return `“${part}” isn't a page or range.`;
-    const a = m[1] ? Number(m[1]) : 1;
-    const b = m[2] ? (m[3] ? Number(m[3]) : max) : a;
-    if (a < 1 || b > max || a > b) return `“${part}” is outside pages 1–${max}.`;
-    for (let i = a; i <= b; i++) if (!out.includes(i - 1)) out.push(i - 1);
-  }
-  return out.length ? out : "Enter at least one page.";
-}
-
 export function PdfSplitter() {
   const [item, setItem] = useState<{ file: File; pages: number } | null>(null);
   const [mode, setMode] = useState<"pick" | "each">("pick");

@@ -52,7 +52,7 @@ export const categories: Category[] = [
     name: "Text",
     title: "Text Tools",
     description: "Useful tools for writing, editing and analyzing text.",
-    intro: "Count words, change letter case and tidy up text — right in your browser.",
+    intro: "Count words, change letter case, tidy up text and hear it read aloud — right in your browser.",
     icon: "text",
     order: 2,
     faqs: [
@@ -66,7 +66,7 @@ export const categories: Category[] = [
     name: "Images",
     title: "Image Tools",
     description: "Resize, compress and transform images easily.",
-    intro: "Make images smaller, change their size or format, and get them ready to share.",
+    intro: "Make images smaller, change their size or format — including iPhone HEIC photos — and get them ready to share.",
     icon: "image",
     order: 3,
     faqs: [
@@ -81,7 +81,7 @@ export const categories: Category[] = [
     name: "PDFs",
     title: "PDF Tools",
     description: "Simple tools for managing PDF files.",
-    intro: "Merge, split and shrink PDF files without installing anything.",
+    intro: "Merge, split, rotate, sign, number and convert PDF files without installing anything.",
     icon: "pdf",
     order: 4,
     faqs: [
@@ -133,7 +133,7 @@ export const categories: Category[] = [
     name: "Productivity",
     title: "Productivity Tools",
     description: "Everyday helpers that save you a few minutes.",
-    intro: "Handy tools for everyday tasks at work and at home.",
+    intro: "Timers, a stopwatch, a wheel spinner, converters and other handy tools for work, school and home.",
     icon: "productivity",
     order: 8,
     faqs: [
@@ -146,7 +146,7 @@ export const categories: Category[] = [
     path: "calculators",
     name: "Calculators",
     title: "Calculators",
-    description: "Quick answers for percentages, dates and more.",
+    description: "Quick answers for money, health, school, dates and percentages.",
     intro: "Simple calculators with the working shown, so you can trust the answer.",
     icon: "calculator",
     order: 9,

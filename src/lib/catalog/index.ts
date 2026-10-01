@@ -14,6 +14,7 @@
 import { categories as allCategories } from "@/lib/catalog/categories";
 import { youtubeTools } from "@/lib/catalog/tools/youtube";
 import { otherTools } from "@/lib/catalog/tools/other";
+import { moreTools } from "@/lib/catalog/tools/more";
 import { toolHelp } from "@/lib/catalog/tools/help";
 import { createCatalog } from "@/lib/catalog/model";
 import type { Tool } from "@/lib/catalog/types";
@@ -49,4 +50,4 @@ export const {
   relatedTools,
   relatedCategories,
   groupedTools,
-} = createCatalog(allCategories, [...youtubeTools, ...otherTools].map(withHelp));
+} = createCatalog(allCategories, [...youtubeTools, ...otherTools, ...moreTools].map(withHelp));

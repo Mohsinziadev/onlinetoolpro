@@ -12,7 +12,15 @@ Each page targets one primary search phrase; no two pages share one. Tools answe
 | /blog/thumbnail-readability-at-small-sizes | youtube thumbnail readability | thumbnail text size, thumbnail mobile, readable thumbnail | Learn (guide) | How to Check Whether a Thumbnail Still Reads at Small Sizes |
 | /calculators | calculators |  | Browse a category | Free Calculators Online \| OnlineToolPro |
 | /calculators/age-calculator | age calculator | how old am i, date of birth, age in days, birthday | Use a tool | Age Calculator — Exact Age in Years, Months and Days |
+| /calculators/bmi-calculator | bmi calculator | body mass index, bmi chart, healthy weight, bmi kg cm, bmi lbs | Use a tool | BMI Calculator — Body Mass Index in kg or lbs |
+| /calculators/calorie-calculator | calorie calculator | tdee calculator, bmr calculator, daily calories, maintenance calories, calorie deficit | Use a tool | Calorie Calculator — Daily Calories, BMR & TDEE |
+| /calculators/compound-interest-calculator | compound interest calculator | savings calculator, investment calculator, interest calculator, compound growth | Use a tool | Compound Interest Calculator — With Monthly Contributions |
+| /calculators/days-between-dates | days between dates | date calculator, how many days until, date difference, count days, business days | Use a tool | Days Between Dates — Count Days, Weeks & Weekdays |
+| /calculators/gpa-calculator | gpa calculator | college gpa calculator, cumulative gpa, grade point average, semester gpa | Use a tool | GPA Calculator — Semester & Cumulative GPA (4.0 Scale) |
+| /calculators/loan-calculator | loan calculator | emi calculator, monthly payment calculator, personal loan calculator, car loan calculator, interest calculator | Use a tool | Loan Calculator — Monthly Payment (EMI) & Interest |
+| /calculators/mortgage-calculator | mortgage calculator | home loan calculator, house payment calculator, mortgage payment, monthly mortgage | Use a tool | Mortgage Calculator — Monthly Payment with Tax & Insurance |
 | /calculators/percentage-calculator | percentage calculator | percent, percentage, discount, increase, percentage change | Use a tool | Percentage Calculator — Percent Of, Change & Discount |
+| /calculators/tip-calculator | tip calculator | split bill, gratuity calculator, how much to tip, bill splitter | Use a tool | Tip Calculator — Work Out the Tip & Split the Bill |
 | /color-tools | color tools |  | Browse a category | Free Color Tools — Converter, Contrast Checker & Palettes |
 | /color-tools/color-converter | color converter | hex to rgb, rgb to hex, hsl, cmyk, color codes | Use a tool | Color Converter — HEX to RGB, HSL, HSV and CMYK |
 | /color-tools/contrast-checker | color contrast checker | contrast checker, wcag, accessibility, color contrast, aa | Use a tool | Color Contrast Checker — WCAG AA & AAA \| OnlineToolPro |
@@ -37,29 +45,46 @@ Each page targets one primary search phrase; no two pages share one. Tools answe
 | /image-tools/compressor | image compressor | compress, reduce size, smaller, jpg, png | Use a tool | Image Compressor — Reduce Image File Size Online |
 | /image-tools/converter | image converter | convert, jpg, png, webp, format | Use a tool | Image Converter — Convert WebP, PNG and JPG Online |
 | /image-tools/cropper | image cropper | crop, cut, trim, square, 16:9 | Use a tool | Image Cropper — Crop Photos Online (Square, 16:9, Free) |
+| /image-tools/heic-to-jpg | heic to jpg | heic to jpeg, convert heic, iphone photo to jpg, heif to jpg, open heic | Use a tool | HEIC to JPG Converter — Convert iPhone Photos, Free |
 | /image-tools/image-to-base64 | image to base64 | base64, data uri, embed image, inline image | Use a tool | Image to Base64 Converter — Data URI for HTML & CSS |
+| /image-tools/jpg-to-png | jpg to png | jpeg to png, convert jpg to png | Use a tool | JPG to PNG Converter — Convert Images Free \| OnlineToolPro |
+| /image-tools/png-to-jpg | png to jpg | png to jpeg, convert png to jpg, png converter | Use a tool | PNG to JPG Converter — Convert Many Images Free |
 | /image-tools/resizer | image resizer | resize, dimensions, scale, width, height | Use a tool | Image Resizer — Resize Images to Exact Pixels Online |
 | /image-tools/svg-to-png | svg to png | convert svg, svg image, vector to png | Use a tool | SVG to PNG Converter — Convert SVG to High-Resolution PNG |
+| /image-tools/webp-to-jpg | webp to jpg | webp to jpeg, convert webp, open webp, webp converter | Use a tool | WebP to JPG Converter — Free, Batch, No Upload |
 | /marketing-tools | marketing tools |  | Browse a category | Free Marketing Tools Online \| OnlineToolPro |
 | /marketing-tools/utm-builder | utm builder | utm, campaign, tracking link, analytics, google analytics | Use a tool | UTM Builder — Create Campaign Tracking Links \| OnlineToolPro |
 | /pdf-tools | pdf tools |  | Browse a category | Free PDF Tools Online \| OnlineToolPro |
 | /pdf-tools/images-to-pdf | jpg to pdf | image to pdf, photos to pdf, png to pdf, convert images to pdf | Use a tool | Images to PDF — Convert JPG and PNG to PDF Online |
 | /pdf-tools/merge | merge pdf | merge, combine, join, combine pdf files | Use a tool | Merge PDF Files Online — Combine PDFs Privately |
+| /pdf-tools/page-numbers | add page numbers to pdf | pdf page numbers, number pdf pages, insert page numbers pdf, page x of y | Use a tool | Add Page Numbers to PDF — Free, Choose Position & Style |
+| /pdf-tools/pdf-to-jpg | pdf to jpg | pdf to image, pdf to png, convert pdf to jpg, pdf page to image, save pdf as jpg | Use a tool | PDF to JPG Converter — Save PDF Pages as Images |
+| /pdf-tools/rotate | rotate pdf | turn pdf pages, rotate pdf pages, fix sideways pdf, rotate pdf and save | Use a tool | Rotate PDF — Turn PDF Pages and Save, Free \| OnlineToolPro |
+| /pdf-tools/sign | sign pdf | sign pdf online, add signature to pdf, electronic signature, e-sign pdf, fill and sign | Use a tool | Sign PDF Online — Draw or Type Your Signature, Free |
 | /pdf-tools/split | split pdf | split, separate, extract pages, remove pages | Use a tool | Split PDF Online — Extract Pages From a PDF \| OnlineToolPro |
+| /pdf-tools/watermark | watermark pdf | add watermark to pdf, pdf watermark, confidential stamp pdf, draft watermark | Use a tool | Watermark PDF — Add a Text Watermark Online, Free |
 | /productivity-tools | productivity tools |  | Browse a category | Free Productivity Tools Online \| OnlineToolPro |
+| /productivity-tools/countdown-timer | online timer | countdown timer, set a timer, 5 minute timer, 10 minute timer, timer with alarm | Use a tool | Online Timer — Free Countdown Timer with Alarm |
 | /productivity-tools/list-randomizer | list randomizer | randomize list, random picker, shuffle, pick a winner, name picker | Use a tool | List Randomizer & Random Name Picker — Shuffle a List |
 | /productivity-tools/password-generator | password generator | password, strong password, random password, secure password | Use a tool | Password Generator — Strong Random Passwords \| OnlineToolPro |
 | /productivity-tools/qr-code-generator | qr code generator | qr, qr code, barcode, scan, wifi qr | Use a tool | QR Code Generator — Free QR Codes That Never Expire |
 | /productivity-tools/random-number-generator | random number generator | random number, number generator, rng, random between, dice | Use a tool | Random Number Generator — Pick Numbers in Any Range |
+| /productivity-tools/spin-the-wheel | spin the wheel | wheel spinner, wheel of names, random wheel, decision wheel, prize wheel | Use a tool | Spin the Wheel — Random Name Picker Wheel, Free |
+| /productivity-tools/stopwatch | online stopwatch | stopwatch, lap timer, stop watch, timer with laps | Use a tool | Online Stopwatch — With Lap Times, Free \| OnlineToolPro |
+| /productivity-tools/time-zone-converter | time zone converter | time difference, world clock, meeting planner, est to ist, pst to gmt | Use a tool | Time Zone Converter — Compare Times Across Cities |
+| /productivity-tools/typing-test | typing speed test | typing test, wpm test, words per minute, typing practice, check typing speed | Use a tool | Typing Speed Test — Check Your WPM & Accuracy |
+| /productivity-tools/unit-converter | unit converter | cm to inches, kg to lbs, celsius to fahrenheit, measurement converter, metric converter | Use a tool | Unit Converter — Length, Weight, Temperature & More |
 | /seo-tools | seo tools |  | Browse a category | Free SEO Tools Online \| OnlineToolPro |
 | /seo-tools/meta-tag-generator | meta tag generator | meta tags, title tag, meta description, open graph, og tags | Use a tool | Meta Tag Generator — Title, Description & Open Graph Tags |
 | /seo-tools/slug-generator | slug generator | slug, url slug, permalink, seo url, slugify | Use a tool | URL Slug Generator — Create SEO-Friendly Slugs |
 | /text-tools | text tools |  | Browse a category | Free Text Tools Online \| OnlineToolPro |
 | /text-tools/case-converter | case converter | uppercase, lowercase, title case, sentence case, capitalize | Use a tool | Case Converter — UPPERCASE, lowercase, Title Case & More |
+| /text-tools/fancy-text-generator | fancy text generator | font generator, bold text generator, cursive text, instagram fonts, stylish text | Use a tool | Fancy Text Generator — Copy & Paste Fonts \| OnlineToolPro |
 | /text-tools/lorem-ipsum-generator | lorem ipsum generator | lorem ipsum, placeholder text, dummy text, filler text | Use a tool | Lorem Ipsum Generator — Placeholder Text Paragraphs |
 | /text-tools/remove-duplicate-lines | remove duplicate lines | duplicates, unique, list, dedupe, remove duplicates | Use a tool | Remove Duplicate Lines — Free Online Duplicate Remover |
 | /text-tools/sort-lines | sort lines | sort, alphabetical, a-z, order, sort list | Use a tool | Sort Lines Online — Alphabetical, Numeric & Random |
 | /text-tools/text-diff | text compare | diff, compare text, difference, changes, text comparison | Use a tool | Text Compare — Free Online Diff Checker \| OnlineToolPro |
+| /text-tools/text-to-speech | text to speech | read text aloud, tts, text reader, speak text, voice reader | Use a tool | Text to Speech — Read Text Aloud Online, Free |
 | /text-tools/whitespace-remover | remove extra spaces | whitespace, remove spaces, extra spaces, blank lines, trim | Use a tool | Remove Extra Spaces — Whitespace & Blank Line Remover |
 | /text-tools/word-counter | word counter | words, characters, count, letters, reading time | Use a tool | Word Counter — Count Words, Characters & Reading Time |
 | /youtube-tools | youtube tools |  | Browse a category | Free YouTube Tools — Thumbnails, IDs, Stats & Calculators |

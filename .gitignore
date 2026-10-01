@@ -44,3 +44,6 @@ next-env.d.ts
 
 # allow the example env file
 !.env.example
+
+# pdf.js worker, copied from node_modules on install
+/public/pdfjs/

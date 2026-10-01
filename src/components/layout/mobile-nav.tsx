@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -36,8 +37,10 @@ export function MobileNav() {
         {open ? <X className="h-5 w-5" strokeWidth={1.75} /> : <Menu className="h-5 w-5" strokeWidth={1.75} />}
       </button>
 
-      {open ? (
-        <div id="mobile-menu" className="fixed inset-x-0 top-20 bottom-0 z-40 animate-fade-in overflow-y-auto border-t border-line bg-bg">
+      {/* Portalled to <body>: the header card's backdrop blur would otherwise become the
+          containing block for this fixed panel and clip it to the card's height. */}
+      {open ? createPortal(
+        <div id="mobile-menu" className="fixed inset-x-0 top-20 bottom-0 z-40 animate-fade-in overflow-y-auto border-t border-line bg-bg lg:hidden">
           <nav
             aria-label="Mobile"
             className="container-page space-y-9 pt-5 pb-12"
@@ -102,7 +105,8 @@ export function MobileNav() {
               ))}
             </div>
           </nav>
-        </div>
+        </div>,
+        document.body,
       ) : null}
     </div>
   );

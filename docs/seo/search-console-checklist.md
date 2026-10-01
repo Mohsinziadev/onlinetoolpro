@@ -17,7 +17,7 @@ Nothing here has been verified against a live Search Console account. The code i
 ## Search Console
 
 - [ ] Add a **Domain property** for `onlinetoolpro.com`, verified with a DNS TXT record at your registrar. This covers http/https and www in one property.
-- [ ] **Sitemaps** → submit `https://onlinetoolpro.com/sitemap.xml`. Expect about 75 URLs: tools, categories, articles and site pages.
+- [ ] **Sitemaps** → submit `https://onlinetoolpro.com/sitemap.xml`. Expect about 108 URLs: tools, categories, articles and site pages.
 - [ ] **URL Inspection** → test a few live URLs: `/`, `/tools`, `/image-tools`, `/pdf-tools/merge`, `/developer-tools/json-formatter`, and one blog post. Check:
   - "URL is available to Google"
   - the user-declared canonical equals the URL itself
