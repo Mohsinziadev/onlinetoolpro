@@ -13,7 +13,10 @@ if (process.env.NODE_ENV === "production" && /localhost|127\.0\.0\.1/.test(proce
 }
 
 const nextConfig: NextConfig = {
-  output: "export",
+  // Static export for builds only. In `next dev`, export mode turns every unknown
+  // URL (an old tab, a removed tool) into a "missing param in generateStaticParams"
+  // error instead of the normal 404 page; without it, dev shows the 404 like production.
+  output: process.env.NODE_ENV === "production" ? "export" : undefined,
   poweredByHeader: false,
   images: {
     // No image optimisation server in a static export.

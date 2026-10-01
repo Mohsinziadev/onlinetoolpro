@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: PageProps<"/blog/page/[page]"
   const n = Number((await params).page);
   return {
     title: `Guides — Page ${n}`,
-    description: `More practical guides from ${siteConfig.name}, page ${n}.`,
+    description: `Page ${n} of practical guides from ${siteConfig.name}: money, images, PDFs, text, developer tools and YouTube — clear answers with tools to match.`,
     alternates: { canonical: pageHref(n) },
   };
 }

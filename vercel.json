@@ -23,22 +23,22 @@
     },
     {
       "source": "/tools/channel-audit",
-      "destination": "/youtube-tools/channel-audit",
+      "destination": "/youtube-tools",
       "permanent": true
     },
     {
       "source": "/tools/channel-tracker",
-      "destination": "/youtube-tools/channel-tracker",
+      "destination": "/youtube-tools",
       "permanent": true
     },
     {
       "source": "/tools/competitor-tracker",
-      "destination": "/youtube-tools/competitor-tracker",
+      "destination": "/youtube-tools",
       "permanent": true
     },
     {
       "source": "/tools/video-comparison",
-      "destination": "/youtube-tools/video-comparison",
+      "destination": "/youtube-tools",
       "permanent": true
     },
     {
@@ -48,7 +48,7 @@
     },
     {
       "source": "/tools/content-gap-finder",
-      "destination": "/youtube-tools/content-gap-finder",
+      "destination": "/youtube-tools",
       "permanent": true
     },
     {
@@ -128,7 +128,7 @@
     },
     {
       "source": "/tools/social-media",
-      "destination": "/social-media-tools",
+      "destination": "/tools",
       "permanent": true
     },
     {

@@ -70,6 +70,7 @@ export function ToolPage({
       ),
     }));
   const key = toolKey(tool);
+  const ads = !tool.noAds;
   const category = getCategory(tool.category)!;
   const title = toolTitle(tool);
   const related = relatedTools(tool, 3);
@@ -134,7 +135,7 @@ export function ToolPage({
               </p>
             ) : null}
 
-            <AdPlaceholder slot="top-banner" className="mt-14" />
+            {ads ? <AdPlaceholder slot="top-banner" className="mt-14" /> : null}
 
             {tool.about ? (
               <section aria-labelledby="about-heading" className="mt-20 grid grid-cols-1 gap-6 border-t border-line pt-16 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] xl:gap-12">
@@ -199,7 +200,7 @@ export function ToolPage({
                         </h2>
                         <div className="prose-tool mt-4">{s.body}</div>
                       </section>
-                      {i === 1 ? <AdPlaceholder slot="in-content" className="mt-12" /> : null}
+                      {i === 1 && ads ? <AdPlaceholder slot="in-content" className="mt-12" /> : null}
                     </div>
                   ))}
                 </article>
@@ -222,7 +223,7 @@ export function ToolPage({
               </section>
             ) : null}
 
-            <AdPlaceholder slot="in-content" className="mt-16" />
+            {ads ? <AdPlaceholder slot="in-content" className="mt-16" /> : null}
             {related.length ? <RelatedTools tools={related} className="mt-16 border-t border-line pt-16" /> : null}
 
             <section aria-labelledby="category-heading" className="mt-16">
@@ -258,7 +259,7 @@ export function ToolPage({
               </div>
             </section>
 
-            <AdPlaceholder slot="bottom" className="mt-16" />
+            {ads ? <AdPlaceholder slot="bottom" className="mt-16" /> : null}
           </div>
         </div>
       </div>

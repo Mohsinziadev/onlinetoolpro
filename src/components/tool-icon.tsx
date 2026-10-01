@@ -109,6 +109,8 @@ import {
   Tag,
   ChartPie,
   ReceiptText,
+  MessageCircle,
+  Camera,
   type LucideIcon,
 } from "lucide-react";
 import type { IconName } from "@/lib/catalog/lite";
@@ -227,6 +229,8 @@ const icons: Record<IconName, LucideIcon> = {
   "tag": Tag,
   "chart-pie": ChartPie,
   "receipt-text": ReceiptText,
+  "message-circle": MessageCircle,
+  "camera": Camera,
 };
 
 export function ToolIcon({ name, className }: { name: IconName; className?: string }) {

@@ -16,6 +16,7 @@ const PAGES: Record<string, BackdropSpec> = {
   "/privacy-policy": { pattern: "grid", tint: "mist" },
   "/disclaimer": { pattern: "rays", tint: "sky" },
   "/terms": { pattern: "diagonal", tint: "sand" },
+  "/acceptable-use": { pattern: "plus", tint: "mist" },
   "/blog": { pattern: "strings", tint: "sky" },
 };
 

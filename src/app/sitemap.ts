@@ -60,7 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...["/how-it-works", "/faq", "/about", "/contact"].map((p) =>
       page(p, 0.4, "yearly")
     ),
-    ...["/privacy-policy", "/terms", "/disclaimer"].map((p) =>
+    ...["/privacy-policy", "/terms", "/disclaimer", "/acceptable-use"].map((p) =>
       page(p, 0.2, "yearly")
     ),
   ];

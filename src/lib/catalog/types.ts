@@ -114,7 +114,9 @@ export type IconName =
   | "house-plus"
   | "tag"
   | "chart-pie"
-  | "receipt-text";
+  | "receipt-text"
+  | "message-circle"
+  | "camera";
 
 export type ToolStatus = "live" | "beta" | "coming-soon";
 
@@ -172,6 +174,8 @@ export type Tool = {
    * Defaults to the lowercased title.
    */
   primaryKeyword?: string;
+  /** Keep ad slots off this tool's page (for tools near ad-network policy lines). */
+  noAds?: boolean;
   /** One plain-language sentence. What the user gets, not how it works. */
   description: string;
   icon: IconName;

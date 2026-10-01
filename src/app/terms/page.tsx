@@ -24,6 +24,9 @@ export default function TermsPage() {
           The tools are free and provided &ldquo;as is&rdquo;. You may use them for personal and commercial purposes. Please
           don&apos;t try to overload the service, get around rate limits, or access it automatically at scale.
         </p>
+        <p>
+          Your use must also follow our <Link href="/acceptable-use">Acceptable Use Policy</Link>, which sets out what the tools may not be used for.
+        </p>
 
         <h2>Content that belongs to others</h2>
         <p>
