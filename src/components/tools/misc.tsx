@@ -42,6 +42,7 @@ export function QrCodeGenerator() {
   const [ssid, setSsid] = useState("");
   const [pass, setPass] = useState("");
   const [sec, setSec] = useState<"WPA" | "WEP" | "nopass">("WPA");
+  const [hidden, setHidden] = useState(false);
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [fg, setFg] = useState("#0a2119");
@@ -56,7 +57,7 @@ export function QrCodeGenerator() {
   const payload =
     kind === "wifi"
       ? ssid
-        ? `WIFI:T:${sec};S:${esc(ssid)};${sec === "nopass" ? "" : `P:${esc(pass)};`};`
+        ? `WIFI:T:${sec};S:${esc(ssid)};${sec === "nopass" ? "" : `P:${esc(pass)};`}${hidden ? "H:true;" : ""};`
         : ""
       : kind === "email"
         ? email
@@ -102,6 +103,7 @@ export function QrCodeGenerator() {
               <Field label="Network name (SSID)" value={ssid} onChange={setSsid} />
               <Choice label="Security" value={sec} onChange={setSec} options={[{ value: "WPA", label: "WPA/WPA2/WPA3" }, { value: "WEP", label: "WEP" }, { value: "nopass", label: "No password" }]} />
               {sec !== "nopass" ? <Field label="Password" value={pass} onChange={setPass} /> : null}
+              <Toggle label="Hidden network (doesn't broadcast its name)" checked={hidden} onChange={setHidden} />
             </div>
           ) : (
             <div className="space-y-4">

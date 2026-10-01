@@ -6,10 +6,16 @@ Each page targets one primary search phrase; no two pages share one. Tools answe
 
 | URL | Primary keyword | Secondary keywords | Intent | Title (as rendered) |
 | --- | --- | --- | --- | --- |
+| /blog/common-json-errors | common json errors | unexpected token in json, unexpected end of json input, json trailing comma, expecting property name enclosed in double quotes, json parse error | Learn (guide) | Common JSON Errors and How to Fix Them \| OnlineToolPro |
+| /blog/how-to-calculate-percentage-change | how to calculate percentage change | percentage change formula, percentage increase, percentage decrease, percent vs percentage points, percentage difference | Learn (guide) | How to Calculate Percentage Change — With Examples |
 | /blog/how-to-download-youtube-thumbnail | how to download youtube thumbnail | download youtube thumbnail, youtube thumbnail download, youtube thumbnail url, get youtube thumbnail, save youtube thumbnail | Learn (guide) | How to Download a YouTube Thumbnail in Full Size (HD) |
+| /blog/how-to-open-heic-files-on-windows | how to open heic files on windows | heic won't open windows, open heic on windows 11, iphone photos heic windows, heif image extensions, convert heic to jpg windows | Learn (guide) | How to Open HEIC Files on Windows (4 Easy Fixes) |
 | /blog/public-youtube-metrics-guide | public youtube metrics | youtube public stats, see youtube channel stats, youtube analytics public | Learn (guide) | Which YouTube Metrics Are Public? What They Tell You |
+| /blog/reduce-image-size-to-100kb | reduce image size to 100kb | compress image to 100kb, reduce photo size in kb, compress jpg to 50kb, photo size for online form, image under 100kb | Learn (guide) | How to Reduce Image Size to 100 KB Without Losing Quality |
 | /blog/rpm-vs-cpm-explained | youtube rpm vs cpm | what is rpm on youtube, what is cpm on youtube, rpm vs cpm | Learn (guide) | RPM vs CPM on YouTube: What Each Number Actually Measures |
+| /blog/sign-pdf-without-printing | how to sign a pdf without printing | sign pdf on phone, electronic signature pdf free, add signature to pdf, is electronic signature legal, electronic vs digital signature | Learn (guide) | How to Sign a PDF Without Printing (Free, Any Device) |
 | /blog/thumbnail-readability-at-small-sizes | youtube thumbnail readability | thumbnail text size, thumbnail mobile, readable thumbnail | Learn (guide) | How to Check Whether a Thumbnail Still Reads at Small Sizes |
+| /blog/wifi-qr-code | how to make a wifi qr code | wifi qr code, qr code for wifi password, share wifi qr code, wifi qr code not working, hidden network qr code | Learn (guide) | How to Make a Wi-Fi QR Code That Actually Works |
 | /calculators | calculators |  | Browse a category | Free Calculators Online \| OnlineToolPro |
 | /calculators/age-calculator | age calculator | how old am i, date of birth, age in days, birthday | Use a tool | Age Calculator — Exact Age in Years, Months and Days |
 | /calculators/bmi-calculator | bmi calculator | body mass index, bmi chart, healthy weight, bmi kg cm, bmi lbs | Use a tool | BMI Calculator — Body Mass Index in kg or lbs |

@@ -63,12 +63,50 @@ function Preview({ src, alt, className }: { src: string; alt: string; className?
 
 /* ——— Compressor ——— */
 
+/**
+ * Find the largest file that fits `targetBytes`: binary-search the quality first,
+ * and only shrink the dimensions when even low quality is too big. Returns the
+ * blob with the quality and size used.
+ */
+async function fitToSize(img: HTMLImageElement, fmt: "image/jpeg" | "image/webp", targetBytes: number, maxWidth: number) {
+  let scale = maxWidth && img.naturalWidth > maxWidth ? maxWidth / img.naturalWidth : 1;
+  for (let attempt = 0; attempt < 10; attempt++) {
+    const canvas = draw(img, img.naturalWidth * scale, img.naturalHeight * scale, fmt);
+    let lo = 0.3;
+    let hi = 0.95;
+    let best: { blob: Blob; q: number } | null = null;
+    for (let i = 0; i < 7; i++) {
+      const q = (lo + hi) / 2;
+      const blob = await canvasToBlob(canvas, fmt, q);
+      if (blob.size <= targetBytes) {
+        best = { blob, q };
+        lo = q;
+      } else hi = q;
+    }
+    if (!best) {
+      const low = await canvasToBlob(canvas, fmt, 0.3);
+      if (low.size <= targetBytes) best = { blob: low, q: 0.3 };
+    }
+    if (best) return { blob: best.blob, quality: Math.round(best.q * 100), width: canvas.width, height: canvas.height };
+    // Still too big at low quality: make the picture smaller and try again.
+    const low = await canvasToBlob(canvas, fmt, 0.5);
+    scale *= Math.max(0.5, Math.min(0.9, Math.sqrt(targetBytes / low.size) * 0.95));
+    if (img.naturalWidth * scale < 40) break;
+  }
+  return null;
+}
+
 export function ImageCompressor() {
   const { loaded, error, load, reset } = useImageFile();
+  const [mode, setMode] = useState<"quality" | "size">("quality");
   const [quality, setQuality] = useState(75);
+  const [targetKb, setTargetKb] = useState("100");
   const [fmt, setFmt] = useState<"image/jpeg" | "image/webp">("image/jpeg");
   const [maxWidth, setMaxWidth] = useState(0);
-  const [out, setOut] = useState<{ blob: Blob; url: string } | null>(null);
+  const [out, setOut] = useState<{ blob: Blob; url: string; note?: string } | null>(null);
+  const [fitError, setFitError] = useState("");
+  // 1 KB is treated as 1,000 bytes, so the result also fits forms that count 1 KB as 1,024 bytes.
+  const targetBytes = Math.floor(Number(targetKb) * 1000);
 
   useEffect(() => {
     if (!loaded) return;
@@ -76,18 +114,42 @@ export function ImageCompressor() {
     const { img } = loaded;
     const scale = maxWidth && img.naturalWidth > maxWidth ? maxWidth / img.naturalWidth : 1;
     const t = window.setTimeout(async () => {
-      const blob = await canvasToBlob(draw(img, img.naturalWidth * scale, img.naturalHeight * scale, fmt), fmt, quality / 100);
+      let blob: Blob;
+      let note: string | undefined;
+      if (mode === "size") {
+        if (!(targetBytes >= 5000)) return;
+        if (loaded.file.size <= targetBytes && loaded.file.type === fmt && !maxWidth) {
+          // Already small enough: keep the original rather than re-encoding it.
+          setFitError("");
+          setOut((prev) => {
+            if (prev) URL.revokeObjectURL(prev.url);
+            return { blob: loaded.file, url: URL.createObjectURL(loaded.file), note: "Already under the target — the original is kept unchanged" };
+          });
+          return;
+        }
+        const fit = await fitToSize(img, fmt, targetBytes, maxWidth);
+        if (cancelled) return;
+        if (!fit) {
+          setFitError("This image can't get that small while staying usable. Try a larger target.");
+          return;
+        }
+        blob = fit.blob;
+        note = `Quality ${fit.quality}% at ${fit.width} × ${fit.height} px${fit.width < img.naturalWidth * scale - 1 ? " (made smaller to fit)" : ""}`;
+      } else {
+        blob = await canvasToBlob(draw(img, img.naturalWidth * scale, img.naturalHeight * scale, fmt), fmt, quality / 100);
+      }
       if (cancelled) return;
+      setFitError("");
       setOut((prev) => {
         if (prev) URL.revokeObjectURL(prev.url);
-        return { blob, url: URL.createObjectURL(blob) };
+        return { blob, url: URL.createObjectURL(blob), note };
       });
-    }, 120);
+    }, mode === "size" ? 250 : 120);
     return () => {
       cancelled = true;
       window.clearTimeout(t);
     };
-  }, [loaded, quality, fmt, maxWidth]);
+  }, [loaded, quality, fmt, maxWidth, mode, targetBytes]);
 
   if (!loaded) return <div className="space-y-3">{error ? <ErrorNote>{error}</ErrorNote> : null}<FileDrop accept={IMAGE_ACCEPT} onFiles={load} title="Drop an image to compress" /></div>;
 
@@ -98,7 +160,25 @@ export function ImageCompressor() {
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-[320px_minmax(0,1fr)]">
       <Panel className="space-y-5">
         <FileMeta name={loaded.file.name} size={before} extra={`${loaded.img.naturalWidth} × ${loaded.img.naturalHeight}`} />
-        <Slider label="Quality" value={quality} onChange={setQuality} min={10} max={100} unit="%" />
+        <Choice label="Compress" value={mode} onChange={setMode} options={[{ value: "quality", label: "By quality" }, { value: "size", label: "To a file size" }]} />
+        {mode === "quality" ? (
+          <Slider label="Quality" value={quality} onChange={setQuality} min={10} max={100} unit="%" />
+        ) : (
+          <div>
+            <FieldLabel htmlFor="target-kb" hint="Largest file you can upload">
+              Target size (KB)
+            </FieldLabel>
+            <input id="target-kb" inputMode="numeric" value={targetKb} onChange={(e) => setTargetKb(e.target.value.replace(/\D/g, "").slice(0, 6))} className="num h-11 w-full rounded-xl border border-line bg-surface-2 px-3.5 text-[15px] text-ink outline-none focus:border-accent/50 focus:ring-4 focus:ring-accent/10" />
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              {["20", "50", "100", "200", "500"].map((k) => (
+                <button key={k} type="button" onClick={() => setTargetKb(k)} className={cn("chip", targetKb === k && "chip-active")}>
+                  {k} KB
+                </button>
+              ))}
+            </div>
+            {targetBytes < 5000 ? <p className="mt-1.5 text-[12.5px] text-danger">Enter at least 5 KB.</p> : null}
+          </div>
+        )}
         <Choice label="Save as" value={fmt} onChange={setFmt} options={[{ value: "image/jpeg", label: "JPG" }, { value: "image/webp", label: "WebP (smaller)" }]} />
         <Choice
           label="Also shrink to (optional)"
@@ -128,7 +208,9 @@ export function ImageCompressor() {
             <p className={cn("num text-[17px] font-medium", saved > 0 ? "text-success" : "text-warning")}>{out ? `${saved}%` : "…"}</p>
           </div>
         </div>
-        {out && saved <= 0 ? <p className="text-[13px] text-warning">This version is bigger than the original — try a lower quality or WebP.</p> : null}
+        {fitError ? <ErrorNote>{fitError}</ErrorNote> : null}
+        {out?.note && mode === "size" ? <p className="text-[13px] text-muted">{out.note}. Fits under {targetKb} KB.</p> : null}
+        {out && saved <= 0 && mode === "quality" ? <p className="text-[13px] text-warning">This version is bigger than the original — try a lower quality or WebP.</p> : null}
         {out ? <Preview src={out.url} alt="Compressed image preview" /> : null}
         <DownloadButton disabled={!out} onClick={() => out && saveBlob(out.blob, `${baseName(loaded.file.name)}-compressed.${EXT[fmt]}`)}>
           Download compressed image

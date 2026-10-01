@@ -48,6 +48,25 @@ If two planned articles would answer the same query, merge them.
 | Which YouTube Metrics Are Public | public youtube metrics | Channel Checker |
 | How to Check Whether a Thumbnail Still Reads at Small Sizes | youtube thumbnail readability | Thumbnail Text Tester |
 | RPM vs CPM on YouTube | youtube rpm vs cpm | RPM / CPM calculators |
+| HEIC Files Won't Open on Windows? 4 Ways to Open or Convert iPhone Photos | how to open heic files on windows | HEIC to JPG |
+| How to Reduce a Photo to Under 100 KB (Without Making It Blurry) | reduce image size to 100kb | Image Compressor (target-size mode), Resizer, Cropper |
+| How to Sign a PDF Without Printing It — on a Computer or Phone | how to sign a pdf without printing | Sign PDF |
+| JSON Errors Explained: What Each Message Means and How to Fix It | common json errors | JSON Formatter |
+| How to Make a Wi-Fi QR Code (and Why Some Don't Connect) | how to make a wifi qr code | QR Code Generator (hidden-network option) |
+| How to Calculate Percentage Change (and the Mistakes Everyone Makes) | how to calculate percentage change | Percentage Calculator |
+
+### Research behind the October 2026 articles
+
+Each topic was chosen after looking at the current results, forums and "People also ask" questions. In every case the first page was mostly thin tool pages repeating "upload, click, download"; the articles win on the specifics those pages skip:
+
+| Article | What competing pages missed | What we added |
+|---|---|---|
+| HEIC on Windows | Which fix suits which situation; fixing it at the source | Decision table; iPhone "Transfer to Mac or PC → Automatic" and "Most Compatible" settings; what's lost in conversion |
+| Under 100 KB | Why files stay too big; KB counted as 1,000 vs 1,024; minimum sizes | DPI myth, starting dimensions per limit, crop → resize → compress order — and a target-size mode added to the compressor |
+| Sign a PDF | Honest legal limits; electronic vs digital signatures | Device table, legal caveats (ESIGN/UETA, eIDAS), privacy of uploading contracts |
+| JSON errors | Cross-language error messages | Real V8 and Python messages mapped to causes; Python writing NaN; precision loss above 2⁵³; BOMs and smart quotes |
+| Wi-Fi QR code | Why codes scan but don't connect | Payload format, escaping, hidden networks (option added to the generator), enterprise and WPA3 limits, print size, guest networks |
+| Percentage change | Everything beyond the formula | Percentage points, successive changes, reversing discounts, negative/zero bases, percent difference, CAGR, spreadsheet formulas |
 
 ---
 
@@ -59,30 +78,70 @@ Be realistic about head terms. "image compressor", "merge pdf" and "json formatt
 
 | # | Article | Primary keyword | Type | Links to | Priority |
 |---|---|---|---|---|---|
-| 1 | How to Reduce Image File Size Without Losing Quality | reduce image file size | How-to | Image Compressor, Image Resizer | P1 |
-| 2 | How to Compress a JPG to Under 100 KB (or Any Size Limit) | compress jpg to 100kb | How-to | Image Compressor | P1 |
+| 1 | ~~How to Reduce Image File Size Without Losing Quality~~ | — | — | Merged into the published 100 KB article (same intent) | Done |
+| 2 | How to Compress a JPG to Under 100 KB (or Any Size Limit) | reduce image size to 100kb | How-to | Image Compressor | **Published** |
 | 3 | WebP vs JPG vs PNG: Which Image Format Should You Use? | webp vs jpg vs png | Comparison | Image Converter | P1 |
 | 4 | How to Combine PDF Files Without Uploading Them | combine pdf files without uploading | How-to | PDF Merger | P1 |
 | 5 | How to Extract Pages From a PDF | extract pages from pdf | How-to | PDF Splitter | P2 |
 | 6 | How to Turn Phone Photos Into a PDF | photos to pdf | How-to | Images to PDF, Image Cropper | P2 |
-| 7 | Common JSON Errors and How to Fix Them | json errors | Troubleshooting | JSON Formatter | P1 |
+| 7 | Common JSON Errors and How to Fix Them | common json errors | Troubleshooting | JSON Formatter | **Published** |
 | 8 | What Is a JWT? How to Read One Safely | what is a jwt | Explainer | JWT Decoder, Base64 | P2 |
 | 9 | Unix Timestamps Explained (Seconds, Milliseconds, Time Zones) | unix timestamp explained | Explainer | Timestamp Converter | P2 |
 | 10 | Regex Cheat Sheet With Examples You Can Test | regex cheat sheet | Guide | Regex Tester | P2 |
 | 11 | What Color Contrast Ratio Do You Need? (WCAG AA vs AAA) | wcag contrast ratio | Explainer | Contrast Checker, Shades Generator | P1 |
-| 12 | How to Make a QR Code for Wi-Fi | wifi qr code | How-to | QR Code Generator | P1 |
+| 12 | How to Make a QR Code for Wi-Fi | how to make a wifi qr code | How-to | QR Code Generator | **Published** |
 | 13 | How Long Should a Password Be? | how long should a password be | Explainer | Password Generator | P2 |
 | 14 | How to Pick a Random Winner Fairly for a Giveaway | pick a random winner | How-to | List Randomizer, Remove Duplicate Lines | P2 |
-| 15 | How to Calculate Percentage Change (With Examples) | how to calculate percentage change | How-to | Percentage Calculator | P1 |
+| 15 | How to Calculate Percentage Change (With Examples) | how to calculate percentage change | Explainer | Percentage Calculator | **Published** |
 | 16 | UTM Parameters Explained: Tag Links the Right Way | utm parameters | Guide | UTM Builder | P2 |
 | 17 | How to Write a Meta Description That Gets Clicks | how to write a meta description | How-to | Meta Tag Generator, Slug Generator | P2 |
 | 18 | How to Clean Up Text Copied From a PDF | text copied from pdf line breaks | Troubleshooting | Extra Space Remover, Case Converter | P2 |
+| 19 | How to Calculate Your GPA (Semester and Cumulative) | how to calculate gpa | How-to | GPA Calculator | P1 |
+| 20 | How Much Should I Tip? A Country-by-Country Guide | how much to tip | Guide | Tip Calculator | P2 |
+| 21 | BMI Explained: What Your Number Means — and What It Doesn't | what is a healthy bmi | Explainer | BMI Calculator, Calorie Calculator | P2 |
+| 22 | How to Convert a PDF to JPG on Any Device | how to convert pdf to jpg | How-to | PDF to JPG | P1 |
+| 23 | How to Schedule a Meeting Across Time Zones | schedule meeting across time zones | How-to | Time Zone Converter | P2 |
+| 24 | What's a Good Typing Speed? WPM by Job and How to Improve | good typing speed | Explainer | Typing Speed Test | P2 |
+| 25 | EMI Explained: How Loan Interest Really Works | how emi is calculated | Explainer | Loan Calculator, Mortgage Calculator | P2 |
 
 Each article gets `cluster` set to its category and `relatedTools` set to the tools above, so tool pages link back to it automatically. `npm run seo:check` fails if an article's primary keyword collides with a tool's.
 
 ---
 
+## Blog architecture: pillars, clusters and links
+
+Each tool category is a cluster. Inside it, content works in three layers:
+
+```
+Pillar guide (one per category, broad)       e.g. "The complete guide to image file sizes and formats"
+  ├─ Problem-solving / how-to articles       e.g. reduce to 100 KB · HEIC on Windows · PDF to JPG
+  ├─ Explainers and comparisons              e.g. WebP vs JPG vs PNG · percent vs percentage points
+  └─ Tool pages                              the "do it now" pages each article links to
+```
+
+Planned pillars (write once a cluster has 4–5 supporting articles to link to):
+
+| Cluster | Pillar topic | Supporting articles (published → planned) |
+|---|---|---|
+| Image | Image sizes and formats, explained | 100 KB guide, HEIC on Windows → WebP vs JPG vs PNG |
+| PDF | Working with PDFs without paid software | Sign without printing → combine, extract pages, PDF to JPG, phone photos to PDF |
+| Developer | Data formats every developer meets | JSON errors → JWT, Unix timestamps, regex cheat sheet |
+| Calculators | Everyday math, done right | Percentage change → GPA, tipping, EMI, BMI |
+| Productivity | Small tools for everyday admin | Wi-Fi QR code → random winners, meeting time zones, typing speed |
+| YouTube | Thumbnails and metrics | Existing four articles → see "First 30 articles" |
+
+Internal linking rules:
+
+- **Article → tool:** link the tool in the quick answer and with a `ToolCta` where the reader is ready to act. Don't add a CTA to every section.
+- **Tool → article:** automatic: a tool page lists every article whose `relatedTools` includes it ("Related guides").
+- **Article ↔ article:** link a sibling where it answers the reader's *next* question (the 100 KB guide links the HEIC guide for iPhone photos, and back). Set `relatedPosts` for the strongest pair.
+- **Pillar ↔ supporting:** once a pillar exists, every supporting article links up to it in its intro or first section, and the pillar links down to each.
+- Anchor text describes the destination ("convert them to JPG in your browser"), never "click here".
+
+---
+
 ## First 30 articles
+
 
 Priority: **P1** = write first (direct support for an existing popular tool or a pillar), **P2** = next, **P3** = fills out the cluster.
 Content types: How-to · Guide · Explainer · Troubleshooting · Comparison · Pillar.

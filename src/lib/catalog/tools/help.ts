@@ -54,6 +54,10 @@ export const toolHelp: Record<string, ToolHelp> = {
       { title: "Getting the smallest file", body: ["Quality is the biggest lever: 70–80% is usually indistinguishable from the original. If the image is much larger than it will be displayed, reduce its dimensions too — halving the width and height cuts the pixel count to a quarter."] },
       { title: "Supported files", body: ["You can drop JPG, PNG, WebP, GIF, BMP or AVIF images. The result is saved as JPG or WebP. Animated GIFs are saved as a single still frame."] },
     ],
+    faqs: [
+      { q: "How do I get an image under 100 KB (or 50 KB, 20 KB)?", a: "Choose “To a file size” and enter the limit. The tool finds the highest quality that fits and only makes the picture smaller if quality alone isn't enough. It counts 1 KB as 1,000 bytes, so the file also fits forms that count 1 KB as 1,024 bytes." },
+      { q: "Does compressing remove photo metadata?", a: "Yes, whenever the image is re-saved: the new file is drawn without the original EXIF data, such as camera details and GPS location. (If a photo is already under your target size, the original is kept unchanged.)" },
+    ],
   },
   "image/resizer": {
     guide: [

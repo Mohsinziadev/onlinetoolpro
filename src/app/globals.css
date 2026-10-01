@@ -691,6 +691,30 @@
   text-underline-offset: 3px;
 }
 .prose-article a:not(:where(.not-prose, .not-prose *)):hover { text-decoration-thickness: 2px; }
+/* ——— Blog card cover: fine line art in the category tint, fading out behind the text ——— */
+.post-cover-art {
+  transform-origin: 100% 0%;
+  mask-image: linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 0.35) 30%, black 62%), linear-gradient(0deg, transparent 0%, rgb(0 0 0 / 0.25) 35%, black 80%);
+  mask-composite: intersect;
+}
+
+/* Code blocks scroll sideways instead of widening the page on phones. */
+.prose-article pre {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--bg-subtle);
+  padding: 0.9rem 1.1rem;
+  font-size: 0.92em;
+  line-height: 1.55;
+}
+.prose-article pre code {
+  border: 0;
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
 .prose-article code {
   font-family: var(--font-mono);
   font-size: 0.86em;

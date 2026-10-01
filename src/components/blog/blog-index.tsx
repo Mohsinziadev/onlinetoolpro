@@ -27,7 +27,7 @@ export function BlogIndex({ page }: { page: number }) {
 
       {featured ? (
         <section aria-label="Featured guide" className="mt-12">
-          <PostCard post={featured} headingLevel={2} className="border-accent/25 sm:p-8 [&_h2]:text-[22px]" />
+          <PostCard post={featured} headingLevel={2} featured />
         </section>
       ) : null}
 
