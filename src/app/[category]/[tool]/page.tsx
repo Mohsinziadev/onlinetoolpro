@@ -15,7 +15,6 @@ import { hasInterface } from "@/tools/keys";
 import { ToolMount } from "@/tools/mounts";
 
 export const dynamicParams = false;
-
 const hasPage = (key: string) => Boolean(toolModules[key]) || hasInterface(key);
 
 export function generateStaticParams() {
