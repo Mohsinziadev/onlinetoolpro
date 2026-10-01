@@ -31,6 +31,8 @@ export const siteConfig = {
   locale: "en_US",
   /** Set NEXT_PUBLIC_SHOW_AD_SLOTS=true to show ad placeholder boxes during layout work. */
   showAdSlots: process.env.NEXT_PUBLIC_SHOW_AD_SLOTS === "true",
+  /** Google Analytics 4 measurement ID. Loaded only in production builds. Set NEXT_PUBLIC_GA_ID to override, or to "" to turn it off. */
+  gaId: process.env.NEXT_PUBLIC_GA_ID ?? "G-NV9D9KQYL4",
 } as const;
 
 export function absoluteUrl(path = "/"): string {

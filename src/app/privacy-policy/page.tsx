@@ -4,7 +4,7 @@ import { PageIntro } from "@/components/content/page-intro";
 import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
-const UPDATED = "September 30, 2026";
+const UPDATED = "October 1, 2026";
 
 export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
@@ -42,14 +42,33 @@ export default function PrivacyPage() {
           in with Google.
         </p>
 
+        <h2>Analytics</h2>
+        <p>
+          We use Google Analytics to understand how the site is used — for example which pages and tools are visited, roughly where
+          visitors come from (country or city level), the device and browser type, and how people arrive (search, links or directly).
+          This helps us decide which tools to improve and build next.
+        </p>
+        <p>
+          Google Analytics sets cookies in your browser and receives information such as your IP address, which Google uses to estimate
+          location. It never receives the text, images or files you use in a tool. Learn{" "}
+          <a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer" target="_blank">
+            how Google uses information from sites that use its services
+          </a>
+          . You can opt out with the{" "}
+          <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener noreferrer" target="_blank">
+            Google Analytics opt-out browser add-on
+          </a>
+          , or by blocking cookies in your browser.
+        </p>
+
         <h2>What we store</h2>
         <p>
-          We don&apos;t have accounts, a database or tracking cookies. The site is a set of static pages; nothing you enter into a
-          tool is sent to us.
+          We don&apos;t have accounts or a database. The site is a set of static pages; nothing you enter into a tool is sent to us.
         </p>
         <ul>
           <li>
-            <strong>Your theme preference</strong> (light or dark) is kept in your browser&apos;s local storage.
+            <strong>Your theme preference</strong> (light or dark) and the tools you used recently are kept in your browser&apos;s local
+            storage, on your device only.
           </li>
           <li>
             <strong>Server logs</strong> (IP address, browser type, time of request) are kept by our hosting provider for security

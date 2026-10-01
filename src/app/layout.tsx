@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Figtree, Geist_Mono } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Providers } from "@/components/providers";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -62,6 +63,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <SiteFooter />
         </Providers>
       </body>
+      {/* Google Analytics (gtag.js), loaded after the page is interactive. Production builds only, so local testing isn't counted. */}
+      {process.env.NODE_ENV === "production" && siteConfig.gaId ? <GoogleAnalytics gaId={siteConfig.gaId} /> : null}
     </html>
   );
 }
