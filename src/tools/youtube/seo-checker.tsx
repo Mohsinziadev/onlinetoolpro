@@ -34,7 +34,7 @@ export default function Page() {
                 Rewrite a long-winded description with the <Link href="/youtube-tools/description-generator">description generator</Link>.
               </li>
               <li>
-                Get chapters YouTube recognises with the <Link href="/youtube-tools/timestamp-generator">timestamp generator</Link>.
+                Get chapters YouTube recognizes with the <Link href="/youtube-tools/timestamp-generator">timestamp generator</Link>.
               </li>
               <li>
                 Format hashtags correctly with the <Link href="/youtube-tools/hashtag-generator">hashtag generator</Link>.

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ToolPage } from "@/components/tool/tool-page";
-import { RevenueCalculator } from "@/components/calculators/calculators";
+import { ToolMount } from "@/tools/mounts";
 
 const SLUG = "youtube/revenue-calculator";
 
@@ -103,7 +103,7 @@ export default function Page() {
         },
       ]}
     >
-      <RevenueCalculator />
+      <ToolMount id="youtube/revenue-calculator" />
     </ToolPage>
   );
 }

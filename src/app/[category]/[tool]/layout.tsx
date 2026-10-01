@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { getCategory, liveTools, toolKey } from "@/lib/catalog";
 import { toolModules } from "@/tools/registry";
-import { toolInterfaces } from "@/tools/interfaces";
+import { hasInterface } from "@/tools/keys";
 
 /**
  * Declares every tool path once for this segment, so the page and its generated
@@ -11,7 +11,7 @@ export const dynamicParams = false;
 
 export function generateStaticParams() {
   return liveTools
-    .filter((t) => toolModules[toolKey(t)] || toolInterfaces[toolKey(t)])
+    .filter((t) => toolModules[toolKey(t)] || hasInterface(toolKey(t)))
     .map((t) => ({ category: getCategory(t.category)!.path, tool: t.slug }));
 }
 

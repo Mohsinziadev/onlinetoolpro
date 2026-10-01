@@ -337,7 +337,7 @@ function buildGrid(
   }
 
   // Center-surround color contrast: block color vs. the mean of its
-  // neighbourhood (radius 3 blocks). Large flat areas score low.
+  // neighborhood (radius 3 blocks). Large flat areas score low.
   const colorDist = new Float32Array(cols * rows);
   const R = 3;
   for (let by = 0; by < rows; by++) {

@@ -55,7 +55,7 @@ function Dropzone({
   );
 }
 
-/* Thumbnail Checker — drop → a scan sweeps the image while a colour histogram dances → three score rings fill. */
+/* Thumbnail Checker — drop → a scan sweeps the image while a color histogram dances → three score rings fill. */
 export function AnalyzerScene({ phase, reduced }: SceneProps) {
   if (phase === 0) return <Dropzone reduced={reduced} />;
   if (phase === 1)

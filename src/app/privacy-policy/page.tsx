@@ -24,13 +24,13 @@ export default function PrivacyPage() {
           tools run entirely in your browser, we don&apos;t ask you to create an account, and we don&apos;t sell personal data.
         </p>
 
-        <h3>Tools that run in your browser</h3>
+        <h2>Tools that run in your browser</h2>
         <p>
           Text tools, thumbnail checkers, calculators and generators process what you type or upload on your own device. That text and
           those images are not sent to or stored on our servers.
         </p>
 
-        <h3>Content loaded from YouTube</h3>
+        <h2>Content loaded from YouTube</h2>
         <p>
           The thumbnail downloader loads thumbnail images directly from YouTube&apos;s public image servers, and the embed code
           generator shows a YouTube player preview. These requests go from your browser straight to YouTube, which may log them
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
           in with Google.
         </p>
 
-        <h3>What we store</h3>
+        <h2>What we store</h2>
         <p>
           We don&apos;t have accounts, a database or tracking cookies. The site is a set of static pages; nothing you enter into a
           tool is sent to us.
@@ -58,32 +58,32 @@ export default function PrivacyPage() {
         </ul>
         <p>You can clear local storage in your browser settings at any time.</p>
 
-        <h3>Advertising</h3>
+        <h2>Advertising</h2>
         <p>
           We don&apos;t currently show ads. If we introduce advertising (for example Google AdSense), advertising partners may use
           cookies to show and measure ads. We will update this policy before that happens, including how to opt out of personalised
           advertising.
         </p>
 
-        <h3>Affiliate links</h3>
+        <h2>Affiliate links</h2>
         <p>
           Some pages may in future include affiliate links. If you click one, the shop may set its own cookie to record that you came
           from us. Their privacy policy applies to anything you do on their site.
         </p>
 
-        <h3>Your choices and rights</h3>
+        <h2>Your choices and rights</h2>
         <p>
           Depending on where you live, you may have the right to ask what personal information we hold about you, to correct it or to
           have it deleted. Email us and we&apos;ll respond within a reasonable time.
         </p>
 
-        <h3>Children</h3>
+        <h2>Children</h2>
         <p>The site isn&apos;t directed at children under 13, and we don&apos;t knowingly collect their personal information.</p>
 
-        <h3>Changes to this policy</h3>
+        <h2>Changes to this policy</h2>
         <p>When we change this policy we&apos;ll update the date at the top of the page.</p>
 
-        <h3>Contact</h3>
+        <h2>Contact</h2>
         <p>
           Questions about privacy: <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>, or use the{" "}
           <Link href="/contact">contact page</Link>.

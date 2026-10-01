@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Frequently asked questions",
-  description: `Answers to common questions about ${siteConfig.name}'s free online tools.`,
+  description: `Answers to common questions about ${siteConfig.name}'s free online tools: cost, privacy, file handling, supported devices and new tools.`,
   path: "/faq",
 });
 

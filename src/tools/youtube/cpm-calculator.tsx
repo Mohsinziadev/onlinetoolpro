@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ToolPage } from "@/components/tool/tool-page";
-import { CpmCalculator } from "@/components/calculators/calculators";
+import { ToolMount } from "@/tools/mounts";
 
 const SLUG = "youtube/cpm-calculator";
 
@@ -63,7 +63,7 @@ export default function Page() {
         { q: "Is playback-based CPM the same thing?", a: "Playback-based CPM counts playbacks with at least one ad instead of individual impressions. Use whichever figures match the numbers you enter." },
       ]}
     >
-      <CpmCalculator />
+      <ToolMount id="youtube/cpm-calculator" />
     </ToolPage>
   );
 }

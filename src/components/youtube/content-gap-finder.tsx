@@ -45,7 +45,7 @@ export function ContentGapFinder() {
 
   return (
     <div className="space-y-10">
-      <form onSubmit={onSubmit} className="grid gap-5 rounded-[20px] border border-line bg-surface p-4 shadow-raised sm:p-6 lg:grid-cols-[1fr_1.4fr]">
+      <form onSubmit={onSubmit} className="grid grid-cols-1 gap-5 rounded-[20px] border border-line bg-surface p-4 shadow-raised sm:p-6 lg:grid-cols-[1fr_1.4fr]">
         <div>
           <label htmlFor="gap-target" className="mb-1.5 block text-[13px] font-medium text-ink">
             Your channel
@@ -164,7 +164,7 @@ function GapResults({ result, source }: { result: ContentGapResult; source: Data
                       </Badge>
                     </div>
                   </div>
-                  <div className="mt-4 grid gap-4 md:grid-cols-[1fr_auto]">
+                  <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-[1fr_auto]">
                     <div>
                       <p className="text-[12.5px] font-medium text-muted">Found in</p>
                       <ul className="mt-2 space-y-2">

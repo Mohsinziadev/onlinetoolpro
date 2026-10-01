@@ -17,7 +17,7 @@ function CopyRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-/* ——— Colour converter ——— */
+/* ——— Color converter ——— */
 
 export function ColorConverter() {
   const [input, setInput] = useState("#1f7a58");
@@ -43,7 +43,7 @@ export function ColorConverter() {
       left={
         <Panel className="space-y-4">
           <div>
-            <FieldLabel htmlFor="cc-in">Any colour</FieldLabel>
+            <FieldLabel htmlFor="cc-in">Any color</FieldLabel>
             <input
               id="cc-in"
               value={input}
@@ -55,12 +55,12 @@ export function ColorConverter() {
             />
           </div>
           <ColorField label="Or pick one" value={rgb ? rgbToHex(rgb) : "#000000"} onChange={setInput} />
-          {input && !rgb ? <ErrorNote>That doesn&apos;t look like a colour. Try #ff8800, rgb(255, 136, 0) or a name like “orange”.</ErrorNote> : null}
+          {input && !rgb ? <ErrorNote>That doesn&apos;t look like a color. Try #ff8800, rgb(255, 136, 0) or a name like “orange”.</ErrorNote> : null}
         </Panel>
       }
       right={
         <Panel className="space-y-3">
-          <div className="h-28 rounded-2xl border border-line" style={{ background: rgb ? rgbToHex(rgb) : "transparent" }} aria-label="Colour preview" role="img" />
+          <div className="h-28 rounded-2xl border border-line" style={{ background: rgb ? rgbToHex(rgb) : "transparent" }} aria-label="Color preview" role="img" />
           {rows.map(([k, v]) => (
             <CopyRow key={k} label={k} value={v} />
           ))}
@@ -90,8 +90,8 @@ export function ContrastChecker() {
     <TwoPane
       left={
         <Panel className="space-y-4">
-          <ColorField label="Text colour" value={rgbToHex(a)} onChange={setFg} />
-          <ColorField label="Background colour" value={rgbToHex(b)} onChange={setBg} />
+          <ColorField label="Text color" value={rgbToHex(a)} onChange={setFg} />
+          <ColorField label="Background color" value={rgbToHex(b)} onChange={setBg} />
           <button
             type="button"
             onClick={() => {
@@ -100,7 +100,7 @@ export function ContrastChecker() {
             }}
             className="chip"
           >
-            <ArrowRightLeft aria-hidden className="h-3.5 w-3.5" /> Swap colours
+            <ArrowRightLeft aria-hidden className="h-3.5 w-3.5" /> Swap colors
           </button>
           <div className="rounded-2xl border border-line p-6" style={{ background: rgbToHex(b), color: rgbToHex(a) }}>
             <p className="text-[26px] leading-tight font-semibold">Large text preview</p>
@@ -149,8 +149,8 @@ export function ShadesGenerator() {
 
   return (
     <div className="space-y-4">
-      <Panel className="grid gap-5 sm:grid-cols-2">
-        <ColorField label="Base colour" value={rgbToHex(rgb)} onChange={setBase} />
+      <Panel className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <ColorField label="Base color" value={rgbToHex(rgb)} onChange={setBase} />
         <Slider label="Tints and shades on each side" value={steps} onChange={setSteps} min={2} max={9} />
       </Panel>
       <Panel title="Your palette">
@@ -202,17 +202,17 @@ export function GradientGenerator() {
           {type === "linear" ? <Slider label="Angle" value={angle} onChange={setAngle} min={0} max={360} unit="°" /> : null}
           <div className="space-y-3">
             {stops.map((s, i) => (
-              <div key={i} className="grid grid-cols-[1fr_1fr_auto] items-end gap-3">
-                <ColorField label={`Colour ${i + 1}`} value={s.color} onChange={(c) => setStops((st) => st.map((x, k) => (k === i ? { ...x, color: c } : x)))} />
+              <div key={i} className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] items-end gap-3">
+                <ColorField label={`Color ${i + 1}`} value={s.color} onChange={(c) => setStops((st) => st.map((x, k) => (k === i ? { ...x, color: c } : x)))} />
                 <Slider label="Position" value={s.pos} onChange={(p) => setStops((st) => st.map((x, k) => (k === i ? { ...x, pos: p } : x)))} min={0} max={100} unit="%" />
-                <button type="button" disabled={stops.length <= 2} onClick={() => setStops((st) => st.filter((_, k) => k !== i))} aria-label={`Remove colour ${i + 1}`} className="mb-1 rounded-full p-2 text-muted hover:bg-bg-subtle hover:text-ink disabled:opacity-30">
+                <button type="button" disabled={stops.length <= 2} onClick={() => setStops((st) => st.filter((_, k) => k !== i))} aria-label={`Remove color ${i + 1}`} className="mb-1 rounded-full p-2 text-muted hover:bg-bg-subtle hover:text-ink disabled:opacity-30">
                   <X className="h-4 w-4" />
                 </button>
               </div>
             ))}
             {stops.length < 5 ? (
               <button type="button" onClick={() => setStops((st) => [...st, { color: "#2268b4", pos: 50 }])} className="chip">
-                <Plus aria-hidden className="h-3.5 w-3.5" /> Add colour
+                <Plus aria-hidden className="h-3.5 w-3.5" /> Add color
               </button>
             ) : null}
           </div>
@@ -248,7 +248,7 @@ export function BoxShadowGenerator() {
           <Slider label="Vertical offset" value={y} onChange={setY} min={-60} max={60} unit="px" />
           <Slider label="Blur" value={blur} onChange={setBlur} min={0} max={120} unit="px" />
           <Slider label="Spread" value={spread} onChange={setSpread} min={-40} max={40} unit="px" />
-          <ColorField label="Shadow colour" value={color} onChange={setColor} />
+          <ColorField label="Shadow color" value={color} onChange={setColor} />
           <Slider label="Opacity" value={opacity} onChange={setOpacity} min={0} max={100} unit="%" />
           <Toggle label="Inner shadow (inset)" checked={inset} onChange={setInset} />
         </Panel>
@@ -322,7 +322,7 @@ export function CssMinifier() {
     <TwoPane
       left={
         <Panel>
-          <TextField label="Your CSS" value={css} onChange={setCss} rows={14} mono placeholder={".card {\n  padding: 16px;\n  margin: 0px auto; /* centred */\n}"} autoFocus />
+          <TextField label="Your CSS" value={css} onChange={setCss} rows={14} mono placeholder={".card {\n  padding: 16px;\n  margin: 0px auto; /* centered */\n}"} autoFocus />
         </Panel>
       }
       right={

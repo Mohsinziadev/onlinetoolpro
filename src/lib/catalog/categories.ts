@@ -11,7 +11,7 @@ export const categories: Category[] = [
     path: "ai-tools",
     name: "AI",
     title: "AI Tools",
-    description: "Summarise, rewrite and create with AI.",
+    description: "Summarize, rewrite and create with AI.",
     intro: "Smart helpers for writing, images and ideas — powered by AI.",
     icon: "ai",
     // First in every list. AI tools need a server-side model, so they're coming soon on this static site.
@@ -170,18 +170,18 @@ export const categories: Category[] = [
   {
     slug: "color",
     path: "color-tools",
-    name: "Colour",
-    title: "Colour Tools",
-    description: "Convert, check and build colour palettes.",
-    intro: "Convert colour codes, check that text is readable, and turn one colour into a full palette.",
+    name: "Color",
+    title: "Color Tools",
+    description: "Convert, check and build color palettes.",
+    intro: "Convert color codes, check that text is readable, and turn one color into a full palette.",
     icon: "palette",
     order: 11,
     faqs: [
-      { q: "What colour formats are supported?", a: "HEX, RGB, HSL, HSV and CMYK, plus CSS colour names like “teal” as input." },
+      { q: "What color formats are supported?", a: "HEX, RGB, HSL, HSV and CMYK, plus CSS color names like “teal” as input." },
       { q: "What contrast ratio do I need?", a: "WCAG AA asks for at least 4.5:1 for normal text and 3:1 for large text. The contrast checker tests all the common levels." },
     ],
-    metaTitle: "Free Colour Tools — Converter, Contrast Checker & Palettes",
-    metaDescription: "Convert HEX, RGB and HSL colours, check WCAG contrast for readable text, and generate tints and shades. Free and instant.",
+    metaTitle: "Free Color Tools — Converter, Contrast Checker & Palettes",
+    metaDescription: "Convert HEX, RGB and HSL colors, check WCAG contrast for readable text, and generate tints and shades. Free and instant.",
   },
   {
     slug: "css",
@@ -195,7 +195,7 @@ export const categories: Category[] = [
     faqs: [
       { q: "Does the generated CSS work in all browsers?", a: "Yes. Gradients, box shadows and border radius are supported by every modern browser without prefixes." },
     ],
-    metaTitle: "Free CSS Tools — Gradient, Box Shadow & Border Radius Generators",
+    metaTitle: "Free CSS Tools — Gradient, Shadow & Radius Generators",
     metaDescription: "Create CSS gradients, box shadows and border radius visually with a live preview, and minify CSS. Copy the code in one click.",
   },
 ];

@@ -1,5 +1,5 @@
 import { ToolPage } from "@/components/tool/tool-page";
-import { EmbedGenerator } from "@/components/youtube/embed-generator";
+import { ToolMount } from "@/tools/mounts";
 
 export default function Page() {
   return (
@@ -36,7 +36,7 @@ export default function Page() {
         { q: "Why does the video say it's unavailable?", a: "The creator may have disabled embedding, or the video is private or age-restricted." },
       ]}
     >
-      <EmbedGenerator />
+      <ToolMount id="youtube/embed-generator" />
     </ToolPage>
   );
 }

@@ -7,7 +7,11 @@
     "build": "next build",
     "start": "npx serve@latest out",
     "lint": "eslint",
-    "typecheck": "next typegen && tsc --noEmit"
+    "typecheck": "next typegen && tsc --noEmit",
+    "seo:check": "tsx --tsconfig tsconfig.json scripts/gen-lite-catalog.ts --check && tsx --tsconfig tsconfig.json scripts/seo-check.ts",
+    "catalog:lite": "tsx --tsconfig tsconfig.json scripts/gen-lite-catalog.ts",
+    "predev": "npm run catalog:lite",
+    "prebuild": "npm run catalog:lite"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -30,6 +34,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.7",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   },
   "engines": {

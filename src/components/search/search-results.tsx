@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { BookOpen, CornerDownLeft } from "lucide-react";
 import { ToolIconTile } from "@/components/tool-icon";
-import { categoryHref, isLive, liveCount, toolHref, type IconName, type Tool } from "@/lib/catalog";
+import { categoryHref, isLive, liveCount, toolHref, type IconName, type Tool } from "@/lib/catalog/lite";
 import { groupResults, searchSite } from "@/lib/catalog/search";
 import { KIND_LABEL, postHref } from "@/lib/blog/posts";
 import { cn, toolCount } from "@/lib/utils";

@@ -6,7 +6,7 @@
  * matches in the name over keywords over description. Linear over the catalog,
  * which stays well under a millisecond for thousands of tools.
  */
-import { categories, getCategory, isLive, liveCount, tools, type Category, type Tool } from "@/lib/catalog";
+import { categories, getCategory, isLive, liveCount, tools, type Category, type Tool } from "@/lib/catalog/lite";
 import { posts } from "@/lib/blog/posts";
 import type { PostMeta } from "@/lib/blog/types";
 
@@ -18,6 +18,11 @@ const norm = (s: string) =>
     .normalize("NFKD")
     .replace(/[̀-ͯ]/g, "")
     .replace(/[^a-z0-9@#]+/g, " ")
+    // British spellings find the same tools ("colour picker" → "color picker").
+    .replace(/colour/g, "color")
+    .replace(/(recogni|organi|summari|anal[yi])s(e|ed|es|ing|er)\b/g, "$1z$2")
+    .replace(/\bgrey/g, "gray")
+    .replace(/\bcentre/g, "center")
     .trim();
 const words = (s: string) => norm(s).split(" ").filter(Boolean);
 

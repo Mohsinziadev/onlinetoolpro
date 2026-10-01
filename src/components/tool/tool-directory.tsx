@@ -6,7 +6,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ArrowRight, Search, X } from "lucide-react";
 import { ToolGrid } from "@/components/tool/tool-card";
 import { EmptyState } from "@/components/tool/states";
-import { categories, categoryHref, liveCount, toolsIn } from "@/lib/catalog";
+import { categories, categoryHref, liveCount, toolsIn } from "@/lib/catalog/lite";
 import { groupResults, searchSite, searchTools } from "@/lib/catalog/search";
 import { PostCard } from "@/components/blog/post-card";
 import { cn, toolCount } from "@/lib/utils";
@@ -103,7 +103,7 @@ export function ToolDirectory() {
           <h2 id="dir-guides" className="text-[14px] font-medium text-ink-2">
             Guides about “{query.trim()}”
           </h2>
-          <ul className="mt-3 grid gap-3 md:grid-cols-3">
+          <ul className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-3">
             {guides.map((g) =>
               g.type === "post" ? (
                 <li key={g.post.slug}>

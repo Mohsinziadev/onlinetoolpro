@@ -11,12 +11,12 @@ import {
 } from "@/lib/catalog";
 import { toolMetadata } from "@/lib/seo";
 import { toolModules } from "@/tools/registry";
-import { toolInterfaces } from "@/tools/interfaces";
+import { hasInterface } from "@/tools/keys";
+import { ToolMount } from "@/tools/mounts";
 
 export const dynamicParams = false;
 
-const hasPage = (key: string) =>
-  Boolean(toolModules[key] || toolInterfaces[key]);
+const hasPage = (key: string) => Boolean(toolModules[key]) || hasInterface(key);
 
 export function generateStaticParams() {
   return liveTools
@@ -51,12 +51,10 @@ export default async function ToolRoute({
     return <ToolBody />;
   }
 
-  const loadInterface = toolInterfaces[key];
-  if (!loadInterface) notFound();
-  const Interface = await loadInterface();
+  if (!hasInterface(key)) notFound();
   return (
     <ToolPage slug={key} wide>
-      <Interface />
+      <ToolMount id={key} />
     </ToolPage>
   );
 }

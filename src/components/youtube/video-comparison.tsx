@@ -102,7 +102,7 @@ export function VideoComparison() {
                 ) : null}
                 {invalid ? (
                   <span id={`video-${i}-err`} className="sr-only">
-                    Not a recognised YouTube video URL
+                    Not a recognized YouTube video URL
                   </span>
                 ) : null}
               </li>
@@ -124,7 +124,7 @@ export function VideoComparison() {
           </Button>
         </div>
         {parsed.some((p, i) => inputs[i].trim() && !p) ? (
-          <p className="mt-3 text-xs text-danger">Some entries aren&apos;t recognised as YouTube video links. They&apos;re highlighted above.</p>
+          <p className="mt-3 text-xs text-danger">Some entries aren&apos;t recognized as YouTube video links. They&apos;re highlighted above.</p>
         ) : null}
       </form>
 
@@ -170,7 +170,7 @@ function ComparisonResults({ result, source, fetchedAt }: { result: Result; sour
         <ErrorState
           title="Some videos were skipped"
           description={[
-            result.invalid.length ? `Not recognised as YouTube links: ${result.invalid.join(", ")}.` : "",
+            result.invalid.length ? `Not recognized as YouTube links: ${result.invalid.join(", ")}.` : "",
             result.notFound.length ? `Not found (private, deleted or unavailable): ${result.notFound.join(", ")}.` : "",
           ]
             .filter(Boolean)

@@ -1,5 +1,5 @@
 import { ToolPage } from "@/components/tool/tool-page";
-import { ThumbnailSafeZone } from "@/components/thumbnail/safe-zone";
+import { ToolMount } from "@/tools/mounts";
 
 const SLUG = "youtube/thumbnail-safe-zone";
 
@@ -95,7 +95,7 @@ export default function Page() {
         },
       ]}
     >
-      <ThumbnailSafeZone />
+      <ToolMount id="youtube/thumbnail-safe-zone" />
     </ToolPage>
   );
 }

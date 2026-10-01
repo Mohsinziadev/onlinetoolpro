@@ -39,11 +39,16 @@ related tools, breadcrumbs, sitemap and social images — is generated from the 
 **New tool**
 1. Add an entry to `src/lib/catalog/tools/*.ts`: name, slug, category, plain-language `description`,
    icon, `status`, and the page content fields `about` ("What is this tool?"), `useCases`, `steps`,
-   `updatedAt`, plus optional `popular` / `featured` / `group` / `related` / `keywords` / `metaTitle`.
-2. If it's live, write its interface component (browser-only — no server calls), then either:
-   - add one line to `src/tools/interfaces.ts` and put its `faqs` and `guide` notes in the catalog, or
-   - for custom page copy, create `src/tools/<category>/<slug>.tsx` (wrap the interface in `<ToolPage>`)
-     and add one line to `src/tools/registry.ts`.
+   `updatedAt`, a unique `primaryKeyword`, plus optional `popular` / `featured` / `group` / `related` /
+   `keywords` / `metaTitle` (≤ 60 characters) / `metaDescription` (110–160 characters).
+2. If it's live, write its interface component (browser-only — no server calls), then:
+   - add its key to `src/tools/keys.ts` and one `dynamic(...)` line to `src/tools/mounts.tsx`
+     (this keeps each tool in its own chunk — never import an interface directly from a page), and
+   - put its "Good to know" notes and extra FAQs in `src/lib/catalog/tools/help.ts`, or, for custom
+     page copy, create `src/tools/<category>/<slug>.tsx` (`<ToolPage>` + `<ToolMount id="…" />`) and
+     add one line to `src/tools/registry.ts`.
+   - Run `npm run seo:check` — it catches duplicate keywords/titles and long titles, and
+     regenerates `docs/seo/keyword-map.md`.
 3. Optional: an animated "How it works" scene in `src/components/demos/scenes/` + a line in
    `src/components/demos/registry.tsx` (otherwise a generic demo is used).
 
@@ -101,7 +106,7 @@ src/
                             sitemap.ts, robots.ts, og.png image routes
   components/
     kit/                    shared building blocks for browser tools (panels, file drop, outputs…)
-    tools/                  browser tool interfaces: text, developer, design (colour + CSS), image, pdf, misc
+    tools/                  browser tool interfaces: text, developer, design (color + CSS), image, pdf, misc
     tool/                   ToolPage template, cards, search results, how-it-works demo
     demos/                  animated "How it works" scenes
     youtube/, thumbnail/, calculators/, utilities/, audience/   YouTube tool interfaces
@@ -112,10 +117,13 @@ src/
     blog/                   article metadata, authors
     color.ts, md5.ts, timestamps.ts, image/, text/, youtube/{parse,types,writing}.ts
   tools/
+    keys.ts                 every live tool with an interface
+    mounts.tsx              lazy-loads each interface as its own chunk
     registry.ts             tools with a custom page module
-    interfaces.ts           tools whose page copy comes from the catalog
+    registry-upcoming.ts    page modules for coming-soon tools (not bundled)
 backend-archive/            server code kept for a future backend (not built)
-docs/seo/content-roadmap.md editorial plan
+docs/seo/                 content roadmap, keyword map, SEO audit, Search Console checklist
+scripts/seo-check.ts      catalog SEO checks (npm run seo:check)
 vercel.json                 redirects + security headers
 ```
 

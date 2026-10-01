@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRight, Info, Lightbulb, TriangleAlert } from "lucide-react";
 import { ToolIconTile } from "@/components/tool-icon";
-import { isLive, resolveTool, toolHref, toolTitle } from "@/lib/catalog";
+import { isLive, resolveTool, toolHref, toolTitle } from "@/lib/catalog/lite";
 import { toolBackdrop } from "@/lib/catalog/visuals";
 import { cn } from "@/lib/utils";
 
@@ -133,7 +133,7 @@ export function ThumbnailUrlDiagram() {
             </span>
           ))}
         </p>
-        <ul className="mt-5 grid gap-2 text-[13.5px] sm:grid-cols-3">
+        <ul className="mt-5 grid grid-cols-1 gap-2 text-[13.5px] sm:grid-cols-3">
           {parts
             .filter((p) => p.label && p.label !== "File type")
             .map((p) => (

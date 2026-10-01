@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ToolIconTile } from "@/components/tool-icon";
-import { categoryHref, liveCount, toolsIn, type Category } from "@/lib/catalog";
+import { categoryHref, liveCount, toolsIn, type Category } from "@/lib/catalog/lite";
 import { categoryBackdrop } from "@/lib/catalog/visuals";
 import { cn, toolCount } from "@/lib/utils";
 

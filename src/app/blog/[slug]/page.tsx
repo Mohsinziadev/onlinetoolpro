@@ -20,7 +20,7 @@ import { postContent } from "@/content/blog";
 import { categoryHref, getCategory, isLive, resolveTool } from "@/lib/catalog";
 import { categoryBackdrop } from "@/lib/catalog/visuals";
 import { absoluteUrl, siteConfig } from "@/lib/site";
-import { ogImageFor } from "@/lib/seo";
+import { brandedTitle, ogImageFor } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
 
 export const dynamicParams = false;
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): P
   const title = post.metaTitle ?? post.title;
   const url = postHref(post);
   return {
-    title: { absolute: `${title} | ${siteConfig.name}` },
+    title: { absolute: brandedTitle(title) },
     description: post.description,
     keywords: [post.primaryKeyword, ...(post.keywords ?? [])],
     alternates: { canonical: url },
@@ -228,7 +228,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
       ) : null}
 
       {prev || next ? (
-        <nav aria-label="More articles" className="mt-16 grid gap-3 border-t border-line pt-10 sm:grid-cols-2">
+        <nav aria-label="More articles" className="mt-16 grid grid-cols-1 gap-3 border-t border-line pt-10 sm:grid-cols-2">
           {prev ? (
             <Link href={postHref(prev)} className="group rounded-2xl border border-line p-5 transition-colors hover:border-line-strong">
               <span className="inline-flex items-center gap-1 text-[13px] text-muted">

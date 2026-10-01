@@ -54,7 +54,7 @@ export function DescriptionGenerator() {
   }
 
   return (
-    <div className="grid gap-4 lg:grid-cols-2">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
       <div className="space-y-5 rounded-3xl border border-line bg-surface p-5 shadow-raised sm:p-7">
         <div>
           <Label htmlFor="dg-summary">What is the video about? (most important)</Label>

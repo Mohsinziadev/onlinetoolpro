@@ -1,5 +1,5 @@
 import { ToolPage } from "@/components/tool/tool-page";
-import { WatchTimeCalculator } from "@/components/calculators/calculators";
+import { ToolMount } from "@/tools/mounts";
 
 const SLUG = "youtube/watch-time-calculator";
 
@@ -55,7 +55,7 @@ export default function Page() {
         { q: "Do Shorts views count toward watch hours?", a: "YouTube's Partner Program rules treat Shorts views separately from long-form watch hours. Check the current requirements in YouTube Help." },
       ]}
     >
-      <WatchTimeCalculator />
+      <ToolMount id="youtube/watch-time-calculator" />
     </ToolPage>
   );
 }

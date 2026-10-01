@@ -12,9 +12,9 @@ export const posts: PostMeta[] = [
   {
     slug: "how-to-download-youtube-thumbnail",
     title: "YouTube Thumbnail Downloader: How to Download YouTube Thumbnails in Full Size",
-    metaTitle: "How to Download a YouTube Thumbnail in Full Size (Every Size Explained)",
+    metaTitle: "How to Download a YouTube Thumbnail in Full Size (HD)",
     description:
-      "How to save any YouTube video's thumbnail in the largest size available — on a computer or phone — plus how thumbnail URLs work, every size YouTube makes, and fixes for common problems.",
+      "Save any YouTube thumbnail in the largest size available, on a computer or phone. Every size YouTube makes, how the URLs work, and fixes for common problems.",
     cluster: "youtube",
     kind: "how-to",
     published: "2026-09-30",
@@ -37,8 +37,9 @@ export const posts: PostMeta[] = [
   {
     slug: "public-youtube-metrics-guide",
     title: "Which YouTube Metrics Are Public — and What You Can Learn From Them",
+    metaTitle: "Which YouTube Metrics Are Public? What They Tell You",
     description:
-      "Subscribers, views, likes and comments are public. Click-through rate, impressions and watch time are not. What public data can and can't tell you about a channel.",
+      "Subscribers, views, likes and comments are public. Click-through rate, impressions and watch time are not. What that public data can tell you about a channel.",
     cluster: "youtube",
     kind: "explainer",
     published: "2026-09-15",

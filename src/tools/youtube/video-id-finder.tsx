@@ -1,5 +1,5 @@
 import { ToolPage } from "@/components/tool/tool-page";
-import { VideoIdFinder } from "@/components/utilities/video-id-finder";
+import { ToolMount } from "@/tools/mounts";
 
 const SLUG = "youtube/video-id-finder";
 
@@ -66,7 +66,7 @@ export default function Page() {
           body: (
             <ul>
               <li>Parsing happens in your browser and doesn&apos;t check whether the video exists or is public.</li>
-              <li>Channel, playlist and search URLs don&apos;t contain a single video ID and are reported as not recognised.</li>
+              <li>Channel, playlist and search URLs don&apos;t contain a single video ID and are reported as not recognized.</li>
             </ul>
           ),
         },
@@ -86,7 +86,7 @@ export default function Page() {
         },
       ]}
     >
-      <VideoIdFinder />
+      <ToolMount id="youtube/video-id-finder" />
     </ToolPage>
   );
 }

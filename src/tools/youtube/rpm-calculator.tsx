@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ToolPage } from "@/components/tool/tool-page";
-import { RpmCalculator } from "@/components/calculators/calculators";
+import { ToolMount } from "@/tools/mounts";
 
 const SLUG = "youtube/rpm-calculator";
 
@@ -64,7 +64,7 @@ export default function Page() {
         { q: "Why is my RPM lower than other creators'?", a: "Audience location, content category, video length, season and the share of views that show ads all influence RPM." },
       ]}
     >
-      <RpmCalculator />
+      <ToolMount id="youtube/rpm-calculator" />
     </ToolPage>
   );
 }

@@ -5,7 +5,7 @@ import { PostCard, PostGrid } from "@/components/blog/post-card";
 import { SectionHeader } from "@/components/tool/section";
 import { JsonLd } from "@/components/json-ld";
 import { POSTS_PER_PAGE, postHref, sortedPosts } from "@/lib/blog/posts";
-import { activeCategories, categoryHref } from "@/lib/catalog";
+import { activeCategories, categoryHref } from "@/lib/catalog/lite";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const pageCount = Math.max(1, Math.ceil(sortedPosts.length / POSTS_PER_PAGE));
@@ -27,7 +27,7 @@ export function BlogIndex({ page }: { page: number }) {
 
       {featured ? (
         <section aria-label="Featured guide" className="mt-12">
-          <PostCard post={featured} className="border-accent/25 sm:p-8 [&_h3]:text-[22px]" />
+          <PostCard post={featured} headingLevel={2} className="border-accent/25 sm:p-8 [&_h2]:text-[22px]" />
         </section>
       ) : null}
 
@@ -61,7 +61,7 @@ export function BlogIndex({ page }: { page: number }) {
       {page === 1 && topics.length ? (
         <section aria-labelledby="topics" className="mt-20 border-t border-line pt-14">
           <SectionHeader id="topics" title="Guides by topic" description="Every guide belongs to a topic, alongside the tools it explains." />
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {topics.map(({ category, count }) => (
               <li key={category.slug}>
                 <Link href={`${categoryHref(category)}#guides`} className="group flex items-center justify-between rounded-2xl border border-line bg-surface p-5 transition-colors hover:border-line-strong">

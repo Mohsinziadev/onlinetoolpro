@@ -1,6 +1,6 @@
 import { SectionHeader } from "@/components/tool/section";
 import { ToolGrid } from "@/components/tool/tool-card";
-import type { Tool } from "@/lib/catalog";
+import type { Tool } from "@/lib/catalog/lite";
 
 export function RelatedTools({ tools, title = "Related tools", className }: { tools: Tool[]; title?: string; className?: string }) {
   return (

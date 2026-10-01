@@ -8,7 +8,7 @@ import { Kbd } from "@/components/ui/primitives";
 import { runSearch, SearchResults, toolItem } from "@/components/search/search-results";
 import { ToolIcon } from "@/components/tool-icon";
 import { cn } from "@/lib/utils";
-import { activeCategories, categoryHref, popularTools } from "@/lib/catalog";
+import { activeCategories, categoryHref, popularTools } from "@/lib/catalog/lite";
 
 /** ⌘K / Ctrl+K search across every category. Empty state suggests popular tools and categories. */
 export function SearchDialog({ variant = "field" }: { variant?: "field" | "plain" }) {

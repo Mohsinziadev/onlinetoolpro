@@ -10,7 +10,7 @@ import { ToolIcon } from "@/components/tool-icon";
 import { useThumbnail } from "@/lib/image/store";
 import type { LoadedImage } from "@/lib/image/load";
 import { ACCEPTED_TYPES } from "@/lib/image/load";
-import { getTool, toolHref } from "@/lib/catalog";
+import { getTool, toolHref } from "@/lib/catalog/lite";
 import { cn, formatBytes } from "@/lib/utils";
 
 const THUMB_TOOLS = ["thumbnail-analyzer", "thumbnail-preview", "thumbnail-readability", "thumbnail-safe-zone"];

@@ -115,7 +115,7 @@ const demos: Record<string, Demo> = {
         ["Brightness", "Good"],
         ["Contrast", "Strong"],
         ["Text size", "Readable"],
-        ["Main colours", "3 bold colours"],
+        ["Main colors", "3 bold colors"],
       ],
     },
   },
@@ -262,7 +262,7 @@ const demos: Record<string, Demo> = {
   "image/resizer": { input: { kind: "upload", file: "banner.png" }, action: "Resize", working: "Resizing to 1280 × 720…", result: { kind: "sizes" } },
   "image/cropper": { input: { kind: "upload", file: "profile.jpg" }, action: "Crop square", working: "Cropping…", result: { kind: "safe-zone" } },
   "image/converter": { input: { kind: "upload", file: "image.webp" }, action: "Convert to JPG", working: "Converting…", result: { kind: "fields", items: [["From", "WebP"], ["To", "JPG"], ["Size", "1920 × 1080"]] } },
-  "image/color-extractor": { input: { kind: "upload", file: "logo.png" }, action: "Get colours", working: "Grouping pixels…", result: { kind: "tags", items: ["#1F7A58", "#7AFAB2", "#0A2119", "#F7FFFB", "#E3F6FF"] } },
+  "image/color-extractor": { input: { kind: "upload", file: "logo.png" }, action: "Get colors", working: "Grouping pixels…", result: { kind: "tags", items: ["#1F7A58", "#7AFAB2", "#0A2119", "#F7FFFB", "#E3F6FF"] } },
   "image/image-to-base64": { input: { kind: "upload", file: "icon.png" }, action: "Convert", working: "Encoding…", result: { kind: "code", lines: ["data:image/png;base64,", "iVBORw0KGgoAAAANSUhEUgAA", "AAEAAAABCAYAAAAfFcSJAAAA", "DUlEQVR42mNk+M9QDwADhgGA…"] } },
   "image/svg-to-png": { input: { kind: "upload", file: "logo.svg" }, action: "Make PNG (2×)", working: "Drawing the SVG…", result: { kind: "fields", items: [["Size", "2×"], ["PNG", "1024 × 1024"], ["Background", "Transparent"]] } },
 
@@ -280,9 +280,9 @@ const demos: Record<string, Demo> = {
   "developer/timestamp-converter": { input: { kind: "fields", fields: [["Timestamp", "1735689600"]] }, action: "Convert", working: "Converting…", result: { kind: "fields", items: [["UTC", "Wed, 01 Jan 2025 00:00:00"], ["ISO", "2025-01-01T00:00:00.000Z"], ["Milliseconds", "1735689600000"]] } },
   "developer/regex-tester": { input: { kind: "fields", fields: [["Pattern", "\\d{4}"], ["Text", "Born 1990, moved 2014"]] }, action: "Test", working: "Matching…", result: { kind: "tags", items: ["1990", "2014"] } },
 
-  "color/color-converter": { input: { kind: "fields", fields: [["Colour", "#1F7A58"]] }, action: "Convert", working: "Converting…", result: { kind: "fields", items: [["RGB", "rgb(31, 122, 88)"], ["HSL", "hsl(158, 59%, 30%)"], ["CMYK", "cmyk(75%, 0%, 28%, 52%)"]] } },
+  "color/color-converter": { input: { kind: "fields", fields: [["Color", "#1F7A58"]] }, action: "Convert", working: "Converting…", result: { kind: "fields", items: [["RGB", "rgb(31, 122, 88)"], ["HSL", "hsl(158, 59%, 30%)"], ["CMYK", "cmyk(75%, 0%, 28%, 52%)"]] } },
   "color/contrast-checker": { input: { kind: "fields", fields: [["Text", "#1C2622"], ["Background", "#E8FFF4"]] }, action: "Check", working: "Measuring contrast…", result: { kind: "checks", items: [["Normal text · AA", "Pass"], ["Normal text · AAA", "Pass"], ["Large text · AA", "Pass"]] } },
-  "color/shades-generator": { input: { kind: "fields", fields: [["Base colour", "#1F7A58"]] }, action: "Generate", working: "Mixing tints and shades…", result: { kind: "bars", items: [["100", 92], ["300", 72], ["Base", 50], ["700", 32], ["900", 14]] } },
+  "color/shades-generator": { input: { kind: "fields", fields: [["Base color", "#1F7A58"]] }, action: "Generate", working: "Mixing tints and shades…", result: { kind: "bars", items: [["100", 92], ["300", 72], ["Base", 50], ["700", 32], ["900", 14]] } },
 
   "css/gradient-generator": { input: { kind: "fields", fields: [["From", "#7AFAB2"], ["To", "#1F7A58"]] }, action: "Copy CSS", working: "Building the gradient…", result: { kind: "code", lines: ["background: linear-gradient(", "  135deg,", "  #7afab2 0%,", "  #1f7a58 100%", ");"] } },
   "css/box-shadow-generator": { input: { kind: "fields", fields: [["Blur", "32px"], ["Opacity", "25%"]] }, action: "Copy CSS", working: "Rendering shadow…", result: { kind: "code", lines: ["box-shadow:", "  0 12px 32px -8px", "  rgba(10, 33, 25, 0.25);"] } },

@@ -1,5 +1,5 @@
 import { ToolPage } from "@/components/tool/tool-page";
-import { CaseConverter } from "@/components/text/case-converter";
+import { ToolMount } from "@/tools/mounts";
 
 export default function Page() {
   return (
@@ -24,7 +24,7 @@ export default function Page() {
         { q: "Can I undo a change?", a: "Press Ctrl+Z (or ⌘Z on a Mac) in the text box, or pick another style." },
       ]}
     >
-      <CaseConverter />
+      <ToolMount id="text/case-converter" />
     </ToolPage>
   );
 }

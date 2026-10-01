@@ -73,7 +73,7 @@ function PreviewStudio({ image }: { image: LoadedImage }) {
           </div>
         </div>
         <p className="mt-2 text-xs text-muted">
-          Neighbouring grey tiles stand in for other videos so you can judge your thumbnail in context. Sizes are typical
+          Neighboring grey tiles stand in for other videos so you can judge your thumbnail in context. Sizes are typical
           CSS widths and vary by screen and window size.
         </p>
       </div>

@@ -95,7 +95,7 @@ export function ImageCompressor() {
   const after = out?.blob.size ?? 0;
   const saved = before ? Math.round((1 - after / before) * 100) : 0;
   return (
-    <div className="grid gap-4 lg:grid-cols-[320px_minmax(0,1fr)]">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-[320px_minmax(0,1fr)]">
       <Panel className="space-y-5">
         <FileMeta name={loaded.file.name} size={before} extra={`${loaded.img.naturalWidth} × ${loaded.img.naturalHeight}`} />
         <Slider label="Quality" value={quality} onChange={setQuality} min={10} max={100} unit="%" />
@@ -177,7 +177,7 @@ export function ImageResizer() {
   }
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[340px_minmax(0,1fr)]">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-[340px_minmax(0,1fr)]">
       <Panel className="space-y-5">
         <FileMeta name={loaded.file.name} size={loaded.file.size} extra={`${loaded.img.naturalWidth} × ${loaded.img.naturalHeight}`} />
         <div className="grid grid-cols-2 gap-3">
@@ -230,7 +230,7 @@ const ASPECTS: { value: string; label: string; r: number | null }[] = [
 const MIN = 0.03;
 const clamp01 = (n: number, lo = 0, hi = 1) => Math.min(hi, Math.max(lo, n));
 
-/** Largest box of pixel ratio `r` that fits, centred on the current box. */
+/** Largest box of pixel ratio `r` that fits, centered on the current box. */
 function fitAspect(b: Box, r: number | null, imgRatio: number): Box {
   if (!r) return b;
   // Pixel ratio (w·W)/(h·H) = r  →  h = w · imgRatio / r
@@ -337,7 +337,7 @@ export function ImageCropper() {
   }
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
       <Panel>
         <div
           ref={frame}
@@ -455,7 +455,7 @@ export function ImageConverter() {
   if (!loaded) return <div className="space-y-3">{error ? <ErrorNote>{error}</ErrorNote> : null}<FileDrop accept={IMAGE_ACCEPT} onFiles={load} title="Drop an image to convert" hint="JPG, PNG, WebP, GIF, BMP or AVIF — the file stays on your device." /></div>;
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[320px_minmax(0,1fr)]">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-[320px_minmax(0,1fr)]">
       <Panel className="space-y-5">
         <FileMeta name={loaded.file.name} size={loaded.file.size} extra={loaded.file.type.replace("image/", "").toUpperCase()} />
         <Choice label="Convert to" value={fmt} onChange={setFmt} options={[{ value: "image/png", label: "PNG" }, { value: "image/jpeg", label: "JPG" }, { value: "image/webp", label: "WebP" }]} />
@@ -473,7 +473,7 @@ export function ImageConverter() {
   );
 }
 
-/* ——— Colour extractor + picker ——— */
+/* ——— Color extractor + picker ——— */
 
 export function ImageColorExtractor() {
   const { loaded, error, load, reset } = useImageFile();
@@ -494,7 +494,7 @@ export function ImageColorExtractor() {
   }, [loaded]);
   const swatches = useMemo(() => (sample ? dominantColors(sample.data, count) : []), [sample, count]);
 
-  if (!loaded) return <div className="space-y-3">{error ? <ErrorNote>{error}</ErrorNote> : null}<FileDrop accept={IMAGE_ACCEPT} onFiles={load} title="Drop an image to get its colours" /></div>;
+  if (!loaded) return <div className="space-y-3">{error ? <ErrorNote>{error}</ErrorNote> : null}<FileDrop accept={IMAGE_ACCEPT} onFiles={load} title="Drop an image to get its colors" /></div>;
 
   function pick(e: ReactMouseEvent<HTMLImageElement>) {
     const c = sample?.canvas;
@@ -507,24 +507,24 @@ export function ImageColorExtractor() {
   }
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_360px]">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_360px]">
       <Panel>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={loaded.img.src} alt="Click anywhere to pick a colour" onClick={pick} className="mx-auto max-h-[460px] w-auto max-w-full cursor-crosshair rounded-2xl border border-line" />
-        <p className="mt-3 text-center text-[13px] text-muted">Click anywhere on the image to pick that exact colour.</p>
+        <img src={loaded.img.src} alt="Click anywhere to pick a color" onClick={pick} className="mx-auto max-h-[460px] w-auto max-w-full cursor-crosshair rounded-2xl border border-line" />
+        <p className="mt-3 text-center text-[13px] text-muted">Click anywhere on the image to pick that exact color.</p>
       </Panel>
       <Panel className="space-y-4">
         {picked ? (
           <div className="flex items-center gap-3 rounded-2xl border border-line p-3">
             <span className="h-10 w-10 rounded-xl border border-line" style={{ background: picked }} />
             <span className="flex-1">
-              <span className="block text-[12px] text-muted">Picked colour</span>
+              <span className="block text-[12px] text-muted">Picked color</span>
               <code className="font-mono text-[15px] text-ink uppercase">{picked}</code>
             </span>
-            <CopyButton value={picked} label="Copy picked colour" />
+            <CopyButton value={picked} label="Copy picked color" />
           </div>
         ) : null}
-        <Slider label="Main colours" value={count} onChange={setCount} min={3} max={10} />
+        <Slider label="Main colors" value={count} onChange={setCount} min={3} max={10} />
         <ul className="space-y-2">
           {swatches.map((s) => (
             <li key={s.hex} className="flex items-center gap-3">
@@ -535,7 +535,7 @@ export function ImageColorExtractor() {
             </li>
           ))}
         </ul>
-        <CopyButton value={swatches.map((s) => s.hex).join(", ")} label="Copy all colours" showLabel />
+        <CopyButton value={swatches.map((s) => s.hex).join(", ")} label="Copy all colors" showLabel />
         <StartOver onClick={reset} />
       </Panel>
     </div>
@@ -566,7 +566,7 @@ export function ImageToBase64() {
   const raw = dataUrl.split(",")[1] ?? "";
   const out = format === "uri" ? dataUrl : format === "raw" ? raw : format === "css" ? `background-image: url("${dataUrl}");` : `<img src="${dataUrl}" alt="" />`;
   return (
-    <div className="grid gap-4 lg:grid-cols-[320px_minmax(0,1fr)]">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-[320px_minmax(0,1fr)]">
       <Panel className="space-y-5">
         <FileMeta name={file.name} size={file.size} />
         <Preview src={dataUrl} alt="Your image" className="max-h-48" />
@@ -625,7 +625,7 @@ export function SvgToPng() {
   }, [code, scale, transparent]);
 
   return (
-    <div className="grid gap-4 lg:grid-cols-2">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
       <Panel className="space-y-4">
         <FileDrop
           compact

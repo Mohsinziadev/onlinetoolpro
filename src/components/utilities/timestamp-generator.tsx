@@ -113,7 +113,7 @@ export function TimestampGenerator() {
               })}
             </ol>
           ) : (
-            <p className="mt-3 text-sm text-muted">No timestamps recognised yet.</p>
+            <p className="mt-3 text-sm text-muted">No timestamps recognized yet.</p>
           )}
           {parsed.skipped.length ? (
             <p className="mt-3 text-xs text-muted">

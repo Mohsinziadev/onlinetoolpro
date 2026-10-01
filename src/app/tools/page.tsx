@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Suspense } from "react";
 import { ToolDirectory } from "@/components/tool/tool-directory";
 import { ToolGrid } from "@/components/tool/tool-card";
@@ -9,12 +10,11 @@ import { JsonLd } from "@/components/json-ld";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 import { activeCategories, liveTools, newTools, toolHref } from "@/lib/catalog";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "All Free Online Tools",
-  description: `Browse every free tool on ${siteConfig.name}: YouTube tools, text tools and more. Simple, fast and no sign-up.`,
-  alternates: { canonical: "/tools" },
-  openGraph: { title: `All tools | ${siteConfig.name}`, description: siteConfig.description, url: "/tools" },
-};
+  description: `Browse every free tool on ${siteConfig.name}: image, PDF, text, developer, color, CSS and YouTube tools. Search or filter by category — no sign-up.`,
+  path: "/tools",
+});
 
 export default function ToolsPage() {
   return (

@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { Backdrop } from "@/components/visual/backdrop";
 import { PATTERNS, TINTS } from "@/lib/catalog/visuals";
-import { getCategoryByPath } from "@/lib/catalog";
+import { getCategoryByPath, getTool, isLive } from "@/lib/catalog/lite";
 import type { Backdrop as BackdropSpec } from "@/lib/catalog/types";
 
 /** Hand-picked backgrounds for the site's own pages — each one different. */
@@ -25,16 +25,24 @@ function hash(s: string): number {
   return h >>> 0;
 }
 
+/** Anything else — including 404s, which a static host serves at any URL. */
+const FALLBACK: BackdropSpec = { pattern: "dots", tint: "mint" };
+
 /**
  * Background for pages that don't draw their own. The homepage, category pages
- * and tool pages render their own backdrop, so they're skipped here. Any other
- * page (blog posts, 404, future pages) gets a stable pattern + tint from its path.
+ * and tool pages render their own backdrop, so they're skipped here. Site pages
+ * use the list above, blog posts get a stable pattern + tint from their path, and
+ * anything else gets the fallback. (A 404 is pre-rendered once but served for every
+ * unknown URL, so it must not depend on the path or hydration would mismatch.)
  */
 export function PageBackdrop() {
   const pathname = usePathname() ?? "/";
   // Category pages (/youtube-tools) and tool pages (/youtube-tools/…) draw their own.
-  if (pathname === "/" || getCategoryByPath(pathname.split("/")[1] ?? "")) return null;
+  const [, first = "", second, ...rest] = pathname.split("/");
+  const category = getCategoryByPath(first);
+  const tool = category && second && !rest.length ? getTool(category.slug, second) : undefined;
+  if (pathname === "/" || (category && !second) || (tool && isLive(tool))) return null;
   const h = hash(pathname);
-  const spec = PAGES[pathname] ?? { pattern: PATTERNS[h % PATTERNS.length], tint: TINTS[(h >>> 4) % TINTS.length] };
+  const spec = PAGES[pathname] ?? (pathname.startsWith("/blog/") ? { pattern: PATTERNS[h % PATTERNS.length], tint: TINTS[(h >>> 4) % TINTS.length] } : FALLBACK);
   return <Backdrop spec={spec} maxHeight="max-h-[620px]" />;
 }

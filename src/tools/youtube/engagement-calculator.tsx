@@ -1,5 +1,5 @@
 import { ToolPage } from "@/components/tool/tool-page";
-import { EngagementCalculator } from "@/components/calculators/calculators";
+import { ToolMount } from "@/tools/mounts";
 
 const SLUG = "youtube/engagement-calculator";
 
@@ -64,7 +64,7 @@ export default function Page() {
         { q: "Can I calculate this for any public video?", a: "Yes — views, likes and comments are public unless likes are hidden or comments are off. Leave a field empty if it isn't available." },
       ]}
     >
-      <EngagementCalculator />
+      <ToolMount id="youtube/engagement-calculator" />
     </ToolPage>
   );
 }

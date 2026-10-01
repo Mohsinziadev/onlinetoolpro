@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { PageBackdrop } from "@/components/visual/page-backdrop";
 import { siteConfig } from "@/lib/site";
+import { defaultOgImage } from "@/lib/seo";
 import "./globals.css";
 
 // Figtree: a geometric sans close in feel to premium SaaS type (e.g. Euclid Circular), free and variable.
@@ -14,7 +15,7 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Free Online Tools for Everyday Tasks`,
+    default: `Free Online Tools for Everyday Tasks | ${siteConfig.name}`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -25,10 +26,11 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: siteConfig.locale,
     url: "/",
-    title: `${siteConfig.name} — Free Online Tools for Everyday Tasks`,
+    title: `Free Online Tools for Everyday Tasks | ${siteConfig.name}`,
     description: siteConfig.description,
+    images: [defaultOgImage],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: { card: "summary_large_image", images: [defaultOgImage] },
   robots: { index: true, follow: true },
 };
 
@@ -42,7 +44,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" suppressHydrationWarning className={`${sans.variable} ${geistMono.variable} antialiased`}>
-      <body className="flex min-h-dvh flex-col">
+      {/* Browser extensions (Grammarly, ColorZilla…) add attributes to <body> before React loads. This ignores
+          attribute differences on <body> only; mismatches in the page content are still reported. */}
+      <body className="flex min-h-dvh flex-col" suppressHydrationWarning>
         <Providers>
           <a
             href="#main"

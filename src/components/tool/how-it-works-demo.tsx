@@ -215,7 +215,7 @@ export function HowItWorksDemo({
         {steps.length} simple steps. No experience needed.
       </p>
 
-      <div className="mt-12 grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-16">
+      <div className="mt-12 grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-16">
         <BackdropPanel
           spec={backdrop}
           className="flex min-h-[420px] items-center justify-center rounded-3xl border border-line p-4 sm:min-h-[460px] sm:p-10"

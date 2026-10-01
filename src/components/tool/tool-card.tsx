@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { ToolIconTile } from "@/components/tool-icon";
 import { Badge } from "@/components/ui/primitives";
-import { getCategory, isLive, toolHref, type Tool } from "@/lib/catalog";
+import { getCategory, isLive, toolHref, type Tool } from "@/lib/catalog/lite";
 import { toolBackdrop } from "@/lib/catalog/visuals";
 import { cn } from "@/lib/utils";
 
@@ -83,7 +83,7 @@ export function ToolGrid({
   className?: string;
 }) {
   return (
-    <ul className={cn("grid gap-3 sm:grid-cols-2", columns === 4 ? "lg:grid-cols-3 xl:grid-cols-4" : "lg:grid-cols-3", className)}>
+    <ul className={cn("grid grid-cols-1 gap-3 sm:grid-cols-2", columns === 4 ? "lg:grid-cols-3 xl:grid-cols-4" : "lg:grid-cols-3", className)}>
       {tools.map((t) => (
         <li key={`${t.category}/${t.slug}`}>
           <ToolCard tool={t} showCategory={showCategory} />

@@ -1,5 +1,5 @@
 import { ToolPage } from "@/components/tool/tool-page";
-import { CommentAnalyzer } from "@/components/audience/comment-analyzer";
+import { ToolMount } from "@/tools/mounts";
 
 const SLUG = "youtube/comment-analyzer";
 
@@ -17,7 +17,7 @@ export default function Page() {
         { q: "Is the sentiment result accurate?", a: "It's an estimate from a word lexicon. Use it as a rough guide alongside the grouped questions and examples, not as a verdict." },
       ]}
     >
-      <CommentAnalyzer />
+      <ToolMount id="youtube/comment-analyzer" />
     </ToolPage>
   );
 }

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ToolPage } from "@/components/tool/tool-page";
-import { ThumbnailAnalyzer } from "@/components/thumbnail/analyzer";
+import { ToolMount } from "@/tools/mounts";
 
 const SLUG = "youtube/thumbnail-analyzer";
 
@@ -123,7 +123,7 @@ export default function Page() {
         },
       ]}
     >
-      <ThumbnailAnalyzer />
+      <ToolMount id="youtube/thumbnail-analyzer" />
     </ToolPage>
   );
 }

@@ -366,7 +366,7 @@ const content: PostContent = {
           <p>
             Downloading thumbnails from videos in your niche is a good way to
             study what works: lay a handful side by side and look for patterns
-            in colour, text and faces. You can then{" "}
+            in color, text and faces. You can then{" "}
             <Link href="/youtube-tools/thumbnail-preview">
               preview your own design next to them
             </Link>{" "}
@@ -394,7 +394,7 @@ const content: PostContent = {
               "Use the full-HD size, or crop the bars off.",
             ],
             [
-              "The link isn't recognised",
+              "The link isn't recognized",
               "It's a channel, playlist or search link, not a single video.",
               "Open the video itself and copy its link.",
             ],

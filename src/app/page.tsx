@@ -4,6 +4,7 @@ import { ArrowRight, Lock, MousePointerClick, Smartphone, Sparkles } from "lucid
 import { HeroSearch } from "@/components/search/hero-search";
 import { CategoryCard, CategoryTile } from "@/components/tool/category-card";
 import { PopularTools } from "@/components/tool/popular-tools";
+import { RecentToolChips } from "@/components/tool/recent-tools";
 import { SectionHeader } from "@/components/tool/section";
 import { ToolGrid } from "@/components/tool/tool-card";
 import { ToolIcon } from "@/components/tool-icon";
@@ -25,11 +26,12 @@ const promises = [
 ];
 
 const faqs = [
-  { q: `What is ${siteConfig.name}?`, a: `${siteConfig.name} is a collection of free online tools for everyday tasks — like downloading a YouTube thumbnail, finding a video ID or counting the words in a text. Each tool does one job, simply.` },
+  { q: `What is ${siteConfig.name}?`, a: `${siteConfig.name} is a collection of free online tools for everyday tasks — like compressing an image, merging PDFs, formatting JSON, checking color contrast or downloading a YouTube thumbnail. Each tool does one job, simply.` },
+  { q: "Who are the tools for?", a: "Anyone who needs a quick job done: students, office workers, creators, marketers and developers. Most tools need no technical knowledge at all." },
   { q: "Do I need to create an account?", a: "No. Every tool works straight away without signing up." },
   { q: "Are the tools really free?", a: "Yes. All tools are free to use." },
-  { q: "Is my data safe?", a: "Yes. Every tool runs entirely in your browser, so your files and text never leave your device. We don't have accounts or a database." },
-  { q: "Will you add more tools?", a: "Yes. We're starting with YouTube and text tools, and image, PDF, social media and developer tools are on the way." },
+  { q: "Is my data safe?", a: "Yes. The tools run in your browser, so the files and text you work on are processed on your device and never uploaded to us. We don't have accounts or a database. A few YouTube tools load public images directly from YouTube." },
+  { q: "Will you add more tools?", a: "Yes. New tools are added regularly. AI tools, social media tools and more PDF tools are planned, and planned tools are marked “Coming soon” until they work." },
 ];
 
 // The homepage uses the same backdrop as the Tag Extractor page.
@@ -58,7 +60,7 @@ export default function HomePage() {
             <span className="text-ink">everyday tasks.</span>
           </h1>
           <p className="lead mx-auto mt-6 max-w-xl text-muted">
-            Useful online tools that help you get things done faster — no technical knowledge required.
+            Free tools for images, PDFs, text, code, colors and YouTube. Open one and it works: no sign-up, no install, no technical knowledge needed.
           </p>
 
           <HeroSearch className="mx-auto mt-10 max-w-2xl" />
@@ -72,6 +74,8 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+
+          <RecentToolChips className="mx-auto mt-3 max-w-2xl" />
 
           <p className="mt-10 text-[14px] text-muted">
             {liveTools.length} free tools · No sign-up · Works on any device
@@ -88,7 +92,7 @@ export default function HomePage() {
           description="Pick a category to see every tool in it. New categories are added regularly."
           link={{ href: "/tools", label: "All tools" }}
         />
-        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {activeCategories.map((c) => (
             <CategoryCard key={c.slug} category={c} />
           ))}
@@ -96,7 +100,7 @@ export default function HomePage() {
         {upcomingCategories.length ? (
           <div className="mt-10">
             <p className="text-[14px] font-medium text-ink-2">Coming soon</p>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {upcomingCategories.map((c) => (
                 <CategoryTile key={c.slug} category={c} />
               ))}
@@ -155,7 +159,7 @@ export default function HomePage() {
           <p className="lead mx-auto mt-4 max-w-xl text-muted">Every tool is built for people who just want the job done.</p>
         </div>
         <div className="mt-14 border-y border-line">
-          <ul className="container-page grid sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="container-page grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {promises.map((p, i) => (
               <li
                 key={p.title}

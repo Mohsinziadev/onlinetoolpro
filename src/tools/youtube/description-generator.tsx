@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ToolPage } from "@/components/tool/tool-page";
-import { DescriptionGenerator } from "@/components/youtube/description-generator";
+import { ToolMount } from "@/tools/mounts";
 
 export default function Page() {
   return (
@@ -39,7 +39,7 @@ export default function Page() {
             <p>
               A clear description helps viewers decide whether to watch and helps YouTube understand the topic. It won&apos;t make
               an unwatched video popular on its own. Write for people first, and use words your viewers would actually search
-              for. To format chapters that YouTube recognises, use the <Link href="/youtube-tools/timestamp-generator">timestamp generator</Link>.
+              for. To format chapters that YouTube recognizes, use the <Link href="/youtube-tools/timestamp-generator">timestamp generator</Link>.
             </p>
           ),
         },
@@ -51,7 +51,7 @@ export default function Page() {
         { q: "Is anything saved?", a: "No. Everything happens in your browser. Copy your description before closing the page." },
       ]}
     >
-      <DescriptionGenerator />
+      <ToolMount id="youtube/description-generator" />
     </ToolPage>
   );
 }

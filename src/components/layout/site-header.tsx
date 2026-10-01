@@ -12,7 +12,7 @@ import { ToolIconTile } from "@/components/tool-icon";
 import { BackdropPanel } from "@/components/visual/backdrop";
 import { companyLinks, legalLinks, resourceLinks } from "@/lib/nav";
 import { KIND_LABEL, latestPosts, postHref } from "@/lib/blog/posts";
-import { activeCategories, categoryHref, getCategory, getTool, laterCategories, liveCount, navCategories, newTools, popularTools, toolHref, toolsIn } from "@/lib/catalog";
+import { activeCategories, categoryHref, getCategory, getTool, laterCategories, liveCount, navCategories, newTools, popularTools, toolHref, toolsIn } from "@/lib/catalog/lite";
 import { toolBackdrop, categoryBackdrop } from "@/lib/catalog/visuals";
 import { cn, toolCount } from "@/lib/utils";
 

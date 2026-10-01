@@ -109,8 +109,8 @@ export function QrCodeGenerator() {
               <Field label="Subject (optional)" value={subject} onChange={setSubject} />
             </div>
           )}
-          <div className="grid gap-4 sm:grid-cols-2">
-            <ColorField label="Code colour" value={fg} onChange={setFg} />
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <ColorField label="Code color" value={fg} onChange={setFg} />
             <ColorField label="Background" value={bg} onChange={setBg} />
           </div>
           <Choice label="Error correction" value={level} onChange={setLevel} options={[{ value: "L", label: "Low" }, { value: "M", label: "Medium" }, { value: "Q", label: "High" }, { value: "H", label: "Highest" }]} />
@@ -124,7 +124,7 @@ export function QrCodeGenerator() {
             <>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={png} alt="Your QR code" className="mx-auto w-full max-w-[320px] rounded-2xl border border-line" />
-              {lowContrast ? <p className="text-[13px] text-warning">The colours are quite close — some phones may struggle to scan it. Dark code on a light background works best.</p> : null}
+              {lowContrast ? <p className="text-[13px] text-warning">The colors are quite close — some phones may struggle to scan it. Dark code on a light background works best.</p> : null}
               <div className="flex flex-wrap gap-2">
                 <DownloadButton onClick={() => fetch(png).then((r) => r.blob()).then((b) => saveBlob(b, "qr-code.png"))}>PNG</DownloadButton>
                 <DownloadButton onClick={() => saveText(svg, "qr-code.svg", "image/svg+xml")}>SVG</DownloadButton>
@@ -179,7 +179,7 @@ export function PasswordGenerator() {
       left={
         <Panel className="space-y-5">
           <Slider label="Length" value={length} onChange={setLength} min={6} max={64} />
-          <div className="grid gap-2 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
             <Toggle label="Lowercase (a–z)" checked={use.lower} onChange={(v) => setUse((u) => ({ ...u, lower: v }))} />
             <Toggle label="Uppercase (A–Z)" checked={use.upper} onChange={(v) => setUse((u) => ({ ...u, upper: v }))} />
             <Toggle label="Numbers (0–9)" checked={use.digits} onChange={(v) => setUse((u) => ({ ...u, digits: v }))} />
@@ -339,7 +339,7 @@ const fmt = (n: number) => (Number.isFinite(n) ? n.toLocaleString(undefined, { m
 function Calc({ title, a, b, setA, setB, labels, result, formula }: { title: string; a: string; b: string; setA: (v: string) => void; setB: (v: string) => void; labels: [string, string]; result: string; formula: string }) {
   return (
     <Panel title={title}>
-      <div className="grid gap-3 sm:grid-cols-[1fr_1fr_auto] sm:items-end">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-[1fr_1fr_auto] sm:items-end">
         <NumberField label={labels[0]} value={a} onChange={setA} />
         <NumberField label={labels[1]} value={b} onChange={setB} />
         <div className="rounded-xl bg-accent-soft px-4 py-3 text-right sm:min-w-36">
@@ -507,7 +507,7 @@ export function MetaTagGenerator() {
             </div>
             <Field label="Page URL" value={url} onChange={setUrl} placeholder="https://example.com/page" type="url" />
             <Field label="Share image URL (1200 × 630 recommended)" value={image} onChange={setImage} placeholder="https://example.com/og.png" type="url" />
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <Field label="Site name" value={site} onChange={setSite} />
               <Field label="X / Twitter handle" value={twitter} onChange={setTwitter} placeholder="@yoursite" />
             </div>
@@ -634,7 +634,7 @@ export function UtmBuilder() {
           <Field label="Source (required)" value={f.source} onChange={set("source")} placeholder="newsletter, google, facebook" hint="Where the traffic comes from" />
           <Field label="Medium (required)" value={f.medium} onChange={set("medium")} placeholder="email, cpc, social" hint="The type of link" />
           <Field label="Campaign (required)" value={f.campaign} onChange={set("campaign")} placeholder="spring_sale" />
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <Field label="Term (optional)" value={f.term} onChange={set("term")} placeholder="running+shoes" />
             <Field label="Content (optional)" value={f.content} onChange={set("content")} placeholder="header_button" />
           </div>

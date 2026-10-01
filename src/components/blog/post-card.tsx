@@ -5,7 +5,8 @@ import type { PostMeta } from "@/lib/blog/types";
 import { formatDate, cn } from "@/lib/utils";
 
 /** Article card used on the blog index, category pages, tool pages and the homepage. */
-export function PostCard({ post, className }: { post: PostMeta; className?: string }) {
+export function PostCard({ post, className, headingLevel = 3 }: { post: PostMeta; className?: string; headingLevel?: 2 | 3 }) {
+  const Heading = headingLevel === 2 ? "h2" : "h3";
   return (
     <Link
       href={postHref(post)}
@@ -15,7 +16,7 @@ export function PostCard({ post, className }: { post: PostMeta; className?: stri
       )}
     >
       <p className="text-[12.5px] font-medium text-accent">{KIND_LABEL[post.kind]}</p>
-      <h3 className="mt-2 text-[17px] leading-snug font-medium tracking-[-0.01em] text-ink group-hover:text-accent">{post.title}</h3>
+      <Heading className="mt-2 text-[17px] leading-snug font-medium tracking-[-0.01em] text-ink group-hover:text-accent">{post.title}</Heading>
       <p className="mt-2 line-clamp-3 flex-1 text-[14px] leading-[1.5] text-muted">{post.description}</p>
       <p className="mt-4 flex items-center justify-between text-[12.5px] text-muted">
         <span>
@@ -30,7 +31,7 @@ export function PostCard({ post, className }: { post: PostMeta; className?: stri
 export function PostGrid({ posts, className }: { posts: PostMeta[]; className?: string }) {
   if (!posts.length) return null;
   return (
-    <ul className={cn("grid gap-3 sm:grid-cols-2 lg:grid-cols-3", className)}>
+    <ul className={cn("grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3", className)}>
       {posts.map((p) => (
         <li key={p.slug}>
           <PostCard post={p} />

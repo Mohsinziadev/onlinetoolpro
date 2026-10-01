@@ -146,7 +146,7 @@ export function WhitespaceRemover() {
       left={
         <Panel>
           <TextField label="Messy text" value={text} onChange={setText} rows={12} placeholder="Paste text with extra spaces, tabs or blank lines…" autoFocus />
-          <div className="mt-4 grid gap-2 sm:grid-cols-2">
+          <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
             <Toggle label="Collapse repeated spaces" checked={spaces} onChange={setSpaces} />
             <Toggle label="Trim each line" checked={trim} onChange={setTrim} />
             <Toggle label="Remove blank lines" checked={empty} onChange={setEmpty} />

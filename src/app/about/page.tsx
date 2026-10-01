@@ -22,14 +22,14 @@ export default function AboutPage() {
       </PageIntro>
 
       <div className="prose-article mt-12 max-w-2xl">
-        <h3>What we build</h3>
+        <h2>What we build</h2>
         <p>
           Right now there are {liveTools.length} tools across {activeCategories.length} categories, starting with YouTube and text
           tools, with more categories planned. Every tool has to be genuinely useful on its own: no sign-up, no paywall in front of the
           basics, and a clear explanation of what it does and what it can&apos;t do.
         </p>
 
-        <h3>How the tools work</h3>
+        <h2>How the tools work</h2>
         <ul>
           <li>
             <strong>Every tool runs in your browser.</strong> Text, image, PDF, developer and YouTube tools all process what you
@@ -44,7 +44,7 @@ export default function AboutPage() {
           </li>
         </ul>
 
-        <h3>How we write guides</h3>
+        <h2>How we write guides</h2>
         <p>
           Our <Link href="/blog">guides</Link> are written by the {siteConfig.name} editorial team from building and testing these
           tools, and platform rules are checked against official sources such as YouTube Help. We don&apos;t publish invented
@@ -52,14 +52,14 @@ export default function AboutPage() {
           its date. If you spot a mistake, <Link href="/contact">tell us</Link> and we&apos;ll fix it.
         </p>
 
-        <h3>How the site is funded</h3>
+        <h2>How the site is funded</h2>
         <p>
           The tools are free. In future the site may show clearly labelled ads and occasionally recommend products through affiliate
           links. Ads will never sit inside a tool or imitate a download button, and a recommendation will only appear where it&apos;s
           genuinely relevant. See our <Link href="/disclaimer">disclaimer</Link> for details.
         </p>
 
-        <h3>Independence</h3>
+        <h2>Independence</h2>
         <p>
           {siteConfig.name} isn&apos;t affiliated with, endorsed by or sponsored by YouTube, Google or any other platform we build
           tools for. YouTube is a trademark of Google LLC.

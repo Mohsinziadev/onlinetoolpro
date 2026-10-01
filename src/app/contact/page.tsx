@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact",
-  description: `Contact ${siteConfig.name} with feedback, bug reports or tool requests.`,
+  description: `Contact ${siteConfig.name} with feedback, bug reports or tool requests. Tell us which tool you'd like us to build next.`,
   path: "/contact",
 });
 
@@ -29,7 +29,7 @@ export default function ContactPage() {
         </a>
         <CopyButton value={siteConfig.contactEmail} label="Copy email" />
       </div>
-      <div className="mt-10 grid gap-3 md:grid-cols-3">
+      <div className="mt-10 grid grid-cols-1 gap-3 md:grid-cols-3">
         {topics.map((t) => (
           <a
             key={t.title}

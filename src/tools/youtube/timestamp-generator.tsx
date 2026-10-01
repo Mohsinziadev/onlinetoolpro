@@ -1,5 +1,5 @@
 import { ToolPage } from "@/components/tool/tool-page";
-import { TimestampGenerator } from "@/components/utilities/timestamp-generator";
+import { ToolMount } from "@/tools/mounts";
 
 const SLUG = "youtube/timestamp-generator";
 
@@ -65,7 +65,7 @@ export default function Page() {
         { q: "Does the text have to be at the start of the description?", a: "No, the list can go anywhere in the description, but each timestamp needs to be on its own line." },
       ]}
     >
-      <TimestampGenerator />
+      <ToolMount id="youtube/timestamp-generator" />
     </ToolPage>
   );
 }

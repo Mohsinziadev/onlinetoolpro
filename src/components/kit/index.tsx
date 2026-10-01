@@ -36,7 +36,7 @@ export function Panel({ children, className, title, actions }: { children: React
 
 /** Two columns on desktop (input | output), stacked on phones. */
 export function TwoPane({ left, right, className }: { left: ReactNode; right: ReactNode; className?: string }) {
-  return <div className={cn("grid gap-4 lg:grid-cols-2", className)}>{left}{right}</div>;
+  return <div className={cn("grid grid-cols-1 gap-4 lg:grid-cols-2", className)}>{left}{right}</div>;
 }
 
 export function FieldLabel({ htmlFor, children, hint }: { htmlFor?: string; children: ReactNode; hint?: ReactNode }) {

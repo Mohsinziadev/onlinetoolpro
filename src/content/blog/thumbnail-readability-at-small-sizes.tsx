@@ -19,9 +19,9 @@ const content: PostContent = {
       body: (
         <>
           <p>
-            Downscaling averages neighbouring pixels. Thin strokes, fine
+            Downscaling averages neighboring pixels. Thin strokes, fine
             outlines and small text are the first things averaged away. Large
-            shapes with strong tonal contrast survive; subtle colour differences
+            shapes with strong tonal contrast survive; subtle color differences
             with similar brightness do not.
           </p>
           <ToolCta tool="youtube/thumbnail-readability" />
@@ -48,7 +48,7 @@ const content: PostContent = {
             </li>
             <li>
               Check luminance contrast between text and its background, not just
-              colour contrast. Yellow on white can look distinct in colour but
+              color contrast. Yellow on white can look distinct in color but
               be similar in brightness.
             </li>
           </ul>

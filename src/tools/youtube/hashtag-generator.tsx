@@ -1,5 +1,5 @@
 import { ToolPage } from "@/components/tool/tool-page";
-import { HashtagGenerator } from "@/components/youtube/hashtag-generator";
+import { ToolMount } from "@/tools/mounts";
 
 export default function Page() {
   return (
@@ -47,7 +47,7 @@ export default function Page() {
         { q: "Should I use capital letters?", a: "YouTube treats #EasyPasta and #easypasta the same. Capitals just make longer hashtags easier to read." },
       ]}
     >
-      <HashtagGenerator />
+      <ToolMount id="youtube/hashtag-generator" />
     </ToolPage>
   );
 }

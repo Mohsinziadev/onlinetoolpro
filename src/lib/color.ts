@@ -1,4 +1,4 @@
-/** Client-safe colour maths: parsing, conversion, WCAG contrast and mixing. */
+/** Client-safe color maths: parsing, conversion, WCAG contrast and mixing. */
 
 export type RGB = { r: number; g: number; b: number };
 
@@ -48,7 +48,7 @@ export function rgbToCmyk({ r, g, b }: RGB): [number, number, number, number] {
   return [(1 - R - k) / (1 - k), (1 - G - k) / (1 - k), (1 - B - k) / (1 - k), k].map((v) => Math.round(v * 100)) as [number, number, number, number];
 }
 
-/** Parse HEX, rgb()/rgba(), hsl()/hsla() or a CSS colour name (via the browser). */
+/** Parse HEX, rgb()/rgba(), hsl()/hsla() or a CSS color name (via the browser). */
 export function parseColor(input: string): RGB | null {
   const s = input.trim().toLowerCase();
   if (!s) return null;

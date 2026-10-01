@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ToolPage } from "@/components/tool/tool-page";
-import { ThumbnailReadability } from "@/components/thumbnail/readability";
+import { ToolMount } from "@/tools/mounts";
 
 const SLUG = "youtube/thumbnail-readability";
 
@@ -83,7 +83,7 @@ export default function Page() {
         },
       ]}
     >
-      <ThumbnailReadability />
+      <ToolMount id="youtube/thumbnail-readability" />
     </ToolPage>
   );
 }

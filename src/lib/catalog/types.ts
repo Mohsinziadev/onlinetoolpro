@@ -86,7 +86,7 @@ export type ToolStatus = "live" | "beta" | "coming-soon";
 
 /** Quiet background patterns for tool and category headers. */
 export type Pattern = "strings" | "grid" | "dots" | "rings" | "waves" | "rays" | "diagonal" | "arcs" | "plus";
-/** Soft colour washes from the site palette. */
+/** Soft color washes from the site palette. */
 export type Tint = "mint" | "sky" | "sand" | "mist" | "aqua";
 export type Backdrop = { pattern: Pattern; tint: Tint };
 
@@ -109,7 +109,7 @@ export type Category = {
   /** Show in the menus even before it has live tools (marked "Coming soon", not linked) */
   showInNav?: boolean;
   /**
-   * Optional sub-groups used to organise "All tools" on big categories.
+   * Optional sub-groups used to organize "All tools" on big categories.
    * Tools reference a group by id; tools without a group fall into "Other".
    */
   groups?: { id: string; name: string }[];
@@ -132,6 +132,12 @@ export type Tool = {
   name: string;
   /** Full page heading, when it differs: "YouTube Thumbnail Downloader" */
   title?: string;
+  /**
+   * The one search phrase this page is built to answer ("merge pdf"). Must be unique
+   * across the site (checked by `npm run seo:check`) so pages don't compete.
+   * Defaults to the lowercased title.
+   */
+  primaryKeyword?: string;
   /** One plain-language sentence. What the user gets, not how it works. */
   description: string;
   icon: IconName;

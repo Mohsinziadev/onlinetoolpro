@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/layout/logo";
-import { activeCategories, categoryHref, liveTools } from "@/lib/catalog";
+import { activeCategories, categoryHref, liveTools } from "@/lib/catalog/lite";
 import { companyLinks, legalLinks, resourceLinks, toolLinks, type NavLink } from "@/lib/nav";
 import { siteConfig } from "@/lib/site";
 
@@ -27,7 +27,7 @@ export function SiteFooter() {
 
   return (
     <footer className="mt-32 border-t border-line bg-bg-subtle">
-      <div className="container-page grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.3fr_1fr_1fr_1fr]">
+      <div className="container-page grid grid-cols-1 gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.3fr_1fr_1fr_1fr]">
         <div className="max-w-xs">
           <Logo />
           <p className="mt-4 text-[14px] leading-[1.5] text-muted">{siteConfig.description}</p>

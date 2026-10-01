@@ -286,7 +286,7 @@ export function ImagesToPdf() {
         compact={items.length > 0}
       />
       {items.length ? (
-        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
           <Panel title={`${items.length} image${items.length === 1 ? "" : "s"} · one per page`}>
             <FileList items={items} setItems={setItems} />
           </Panel>

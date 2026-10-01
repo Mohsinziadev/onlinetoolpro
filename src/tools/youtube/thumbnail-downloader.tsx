@@ -1,5 +1,5 @@
 import { ToolPage } from "@/components/tool/tool-page";
-import { ThumbnailDownloader } from "@/components/youtube/thumbnail-downloader";
+import { ToolMount } from "@/tools/mounts";
 
 export default function Page() {
   return (
@@ -39,7 +39,7 @@ export default function Page() {
         { q: "What format are the thumbnails?", a: "They are JPG images, the same files YouTube shows on its site." },
       ]}
     >
-      <ThumbnailDownloader />
+      <ToolMount id="youtube/thumbnail-downloader" />
     </ToolPage>
   );
 }

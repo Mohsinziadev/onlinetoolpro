@@ -81,7 +81,7 @@ export function CommentAnalyzer() {
       ) : (
         <p className="flex flex-wrap items-center gap-2 text-[14px] text-muted">
           <span className="rounded-full border border-line px-2.5 py-0.5 text-[12px] font-medium text-ink-2">Coming soon</span>
-          Analysing comments straight from a video link. For now, copy the comments and paste them below.
+          Analyzing comments straight from a video link. For now, copy the comments and paste them below.
         </p>
       )}
       {mode === "video" ? (
@@ -190,7 +190,7 @@ function Results({ result: r, source, video }: { result: CommentAnalysisResult; 
       </section>
       <section>
         <SectionHeading title="Frequently Mentioned Terms" description="Number of comments mentioning each word (common words excluded)." />
-        <Card className="grid gap-x-8 gap-y-2 p-5 sm:grid-cols-2">
+        <Card className="grid grid-cols-1 gap-x-8 gap-y-2 p-5 sm:grid-cols-2">
           {r.terms.map((t) => (
             <div key={t.term} className="flex items-center gap-3 text-[13px]">
               <span className="w-28 truncate text-ink">{t.term}</span>

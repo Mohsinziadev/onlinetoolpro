@@ -51,6 +51,37 @@ If two planned articles would answer the same query, merge them.
 
 ---
 
+## Next up: image, PDF, text and developer clusters
+
+Added October 2026, when those categories went live. Write these **before** the remaining YouTube articles: they support tools people use every week, not just creators.
+
+Be realistic about head terms. "image compressor", "merge pdf" and "json formatter" are dominated by long-established sites (iLovePDF, Smallpdf, TinyPNG, jsonformatter.org). A new site wins first on **specific questions**, where a precise answer plus a tool that runs privately in the browser beats a generic page. The tool pages keep targeting the head term; these articles target the questions around it.
+
+| # | Article | Primary keyword | Type | Links to | Priority |
+|---|---|---|---|---|---|
+| 1 | How to Reduce Image File Size Without Losing Quality | reduce image file size | How-to | Image Compressor, Image Resizer | P1 |
+| 2 | How to Compress a JPG to Under 100 KB (or Any Size Limit) | compress jpg to 100kb | How-to | Image Compressor | P1 |
+| 3 | WebP vs JPG vs PNG: Which Image Format Should You Use? | webp vs jpg vs png | Comparison | Image Converter | P1 |
+| 4 | How to Combine PDF Files Without Uploading Them | combine pdf files without uploading | How-to | PDF Merger | P1 |
+| 5 | How to Extract Pages From a PDF | extract pages from pdf | How-to | PDF Splitter | P2 |
+| 6 | How to Turn Phone Photos Into a PDF | photos to pdf | How-to | Images to PDF, Image Cropper | P2 |
+| 7 | Common JSON Errors and How to Fix Them | json errors | Troubleshooting | JSON Formatter | P1 |
+| 8 | What Is a JWT? How to Read One Safely | what is a jwt | Explainer | JWT Decoder, Base64 | P2 |
+| 9 | Unix Timestamps Explained (Seconds, Milliseconds, Time Zones) | unix timestamp explained | Explainer | Timestamp Converter | P2 |
+| 10 | Regex Cheat Sheet With Examples You Can Test | regex cheat sheet | Guide | Regex Tester | P2 |
+| 11 | What Color Contrast Ratio Do You Need? (WCAG AA vs AAA) | wcag contrast ratio | Explainer | Contrast Checker, Shades Generator | P1 |
+| 12 | How to Make a QR Code for Wi-Fi | wifi qr code | How-to | QR Code Generator | P1 |
+| 13 | How Long Should a Password Be? | how long should a password be | Explainer | Password Generator | P2 |
+| 14 | How to Pick a Random Winner Fairly for a Giveaway | pick a random winner | How-to | List Randomizer, Remove Duplicate Lines | P2 |
+| 15 | How to Calculate Percentage Change (With Examples) | how to calculate percentage change | How-to | Percentage Calculator | P1 |
+| 16 | UTM Parameters Explained: Tag Links the Right Way | utm parameters | Guide | UTM Builder | P2 |
+| 17 | How to Write a Meta Description That Gets Clicks | how to write a meta description | How-to | Meta Tag Generator, Slug Generator | P2 |
+| 18 | How to Clean Up Text Copied From a PDF | text copied from pdf line breaks | Troubleshooting | Extra Space Remover, Case Converter | P2 |
+
+Each article gets `cluster` set to its category and `relatedTools` set to the tools above, so tool pages link back to it automatically. `npm run seo:check` fails if an article's primary keyword collides with a tool's.
+
+---
+
 ## First 30 articles
 
 Priority: **P1** = write first (direct support for an existing popular tool or a pillar), **P2** = next, **P3** = fills out the cluster.

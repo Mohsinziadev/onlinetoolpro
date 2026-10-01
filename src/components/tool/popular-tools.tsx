@@ -1,6 +1,6 @@
 import { SectionHeader } from "@/components/tool/section";
 import { ToolGrid } from "@/components/tool/tool-card";
-import { popularTools } from "@/lib/catalog";
+import { popularTools } from "@/lib/catalog/lite";
 
 /**
  * Popular tools from any category (or one category). Driven by `popular: true`

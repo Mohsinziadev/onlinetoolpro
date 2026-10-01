@@ -114,7 +114,7 @@ export function ThumbnailDownloader() {
 
           <div>
             <h2 className="text-[17px] font-medium text-ink">All sizes</h2>
-            <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {SIZES.slice(1).map((s) => {
                 const gone = missing.has(s.id);
                 return (

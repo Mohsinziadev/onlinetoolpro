@@ -24,7 +24,7 @@ export const siteConfig = {
   name: NAME,
   tagline: "Simple tools for everyday tasks.",
   description:
-    "Free, simple online tools that help you get everyday tasks done faster — no technical knowledge and no sign-up required.",
+    "Free online tools for images, PDFs, text, code, colors and YouTube. Compress, convert, format and calculate right in your browser, with no sign-up.",
   url: URL_,
   /** hello@onlinetoolpro.com by default — set NEXT_PUBLIC_CONTACT_EMAIL to override. */
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? `hello@${emailDomain()}`,

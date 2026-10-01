@@ -43,7 +43,7 @@ export function WordCounter() {
   ];
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_300px]">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_300px]">
       <div className="flex flex-col rounded-3xl border border-line bg-surface shadow-raised">
         <label htmlFor="wc-text" className="sr-only">
           Your text

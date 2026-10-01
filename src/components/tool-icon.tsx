@@ -77,7 +77,7 @@ import {
   WandSparkles,
   type LucideIcon,
 } from "lucide-react";
-import type { IconName } from "@/lib/catalog";
+import type { IconName } from "@/lib/catalog/lite";
 import type { Tint } from "@/lib/catalog/types";
 import { cn } from "@/lib/utils";
 
@@ -176,7 +176,7 @@ export function ToolIconTile({
 }: {
   name: IconName;
   size?: "sm" | "md" | "lg";
-  /** "tint" uses the tool's own colour wash; pass `tint` with it. */
+  /** "tint" uses the tool's own color wash; pass `tint` with it. */
   tone?: "neutral" | "accent" | "tint";
   tint?: Tint;
   className?: string;

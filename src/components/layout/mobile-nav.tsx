@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react";
 import { HeroSearch } from "@/components/search/hero-search";
 import { ToolIcon, ToolIconTile } from "@/components/tool-icon";
 import { companyLinks, legalLinks, resourceLinks } from "@/lib/nav";
-import { categoryHref, laterCategories, liveCount, navCategories, popularTools, toolHref } from "@/lib/catalog";
+import { categoryHref, laterCategories, liveCount, navCategories, popularTools, toolHref } from "@/lib/catalog/lite";
 
 /** Mobile menu, ordered for discovery: search → categories → popular tools → all tools → resources. */
 export function MobileNav() {

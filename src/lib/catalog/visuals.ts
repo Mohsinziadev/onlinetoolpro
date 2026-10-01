@@ -1,4 +1,4 @@
-import { categories, tools, type Category, type Tool } from "@/lib/catalog";
+import { categories, tools, type Category, type Tool } from "@/lib/catalog/lite";
 import type { Backdrop, Pattern, Tint } from "@/lib/catalog/types";
 
 export const PATTERNS: Pattern[] = ["strings", "grid", "dots", "rings", "waves", "rays", "diagonal", "arcs", "plus"];

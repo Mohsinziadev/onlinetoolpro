@@ -31,7 +31,7 @@ export function HashtagGenerator() {
   }
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
       <div className="space-y-5 rounded-3xl border border-line bg-surface p-5 shadow-raised sm:p-7">
         <div>
           <Label htmlFor="ht-input">Your video&apos;s topic and keywords</Label>

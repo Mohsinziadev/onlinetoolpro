@@ -1,5 +1,5 @@
 import { ToolPage } from "@/components/tool/tool-page";
-import { WordCounter } from "@/components/text/word-counter";
+import { ToolMount } from "@/tools/mounts";
 
 export default function Page() {
   return (
@@ -25,7 +25,7 @@ export default function Page() {
         { q: "Is there a word limit?", a: "No practical limit — you can paste whole essays or reports." },
       ]}
     >
-      <WordCounter />
+      <ToolMount id="text/word-counter" />
     </ToolPage>
   );
 }

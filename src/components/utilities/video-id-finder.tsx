@@ -51,7 +51,7 @@ export function VideoIdFinder() {
           {results.length > 1 && allIds ? (
             <div className="flex items-center justify-between rounded-2xl border border-line bg-bg-subtle px-4 py-3">
               <p className="text-sm text-ink-2">
-                {results.filter((r) => r.parsed).length} of {results.length} links recognised
+                {results.filter((r) => r.parsed).length} of {results.length} links recognized
               </p>
               <CopyButton value={allIds} label="Copy all IDs" showLabel />
             </div>
@@ -84,7 +84,7 @@ export function VideoIdFinder() {
               <div key={`${line}-${i}`} className="flex items-start gap-2 rounded-2xl border border-danger/25 bg-danger-soft p-4 text-sm">
                 <XCircle aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-danger" />
                 <div className="min-w-0">
-                  <p className="font-medium text-ink">Not a recognised YouTube video link</p>
+                  <p className="font-medium text-ink">Not a recognized YouTube video link</p>
                   <p className="truncate font-mono text-xs text-ink-2">{line}</p>
                   <p className="mt-1 text-xs text-muted">Channel, playlist and search URLs don&apos;t contain a single video ID.</p>
                 </div>

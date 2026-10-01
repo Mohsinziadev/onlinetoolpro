@@ -137,7 +137,7 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
         {others.length ? (
           <section aria-labelledby="more-categories" className="mt-24 border-t border-line pt-16">
             <SectionHeader id="more-categories" title="Explore other categories" link={{ href: "/tools", label: "All tools" }} />
-            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {others.map((c) => (
                 <CategoryTile key={c.slug} category={c} />
               ))}
