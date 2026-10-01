@@ -292,7 +292,8 @@ export const moreTools: Tool[] = [
   },
   {
     slug: "loan-calculator",
-    category: "calculators",
+    category: "finance",
+    group: "borrow",
     name: "Loan Calculator",
     title: "Loan & EMI Calculator",
     primaryKeyword: "loan calculator",
@@ -305,7 +306,7 @@ export const moreTools: Tool[] = [
     steps: ["Enter the loan amount and yearly interest rate.", "Enter the term in years or months.", "See the monthly payment, total interest and schedule."],
     about: "Works out the fixed monthly payment for a loan — often called EMI (equated monthly installment) — along with the total interest you'll pay and how the balance falls year by year. It suits personal, car and student loans with a fixed rate.",
     useCases: ["Compare loan offers with different rates or terms.", "See how much a car loan really costs.", "Check whether a monthly payment fits your budget."],
-    related: ["mortgage-calculator", "compound-interest-calculator", "percentage-calculator"],
+    related: ["mortgage-calculator", "compound-interest-calculator", "debt-payoff-calculator", "calculators/percentage-calculator"],
     notes: ["Yearly breakdown", "Any currency"],
     faqs: [
       { q: "What is EMI?", a: "Equated monthly installment — the same payment every month that covers both interest and part of the loan, so it's fully repaid by the end of the term." },
@@ -320,7 +321,8 @@ export const moreTools: Tool[] = [
   },
   {
     slug: "mortgage-calculator",
-    category: "calculators",
+    category: "finance",
+    group: "home",
     name: "Mortgage Calculator",
     primaryKeyword: "mortgage calculator",
     description: "Estimate your monthly mortgage payment with taxes, insurance and HOA fees.",
@@ -332,7 +334,7 @@ export const moreTools: Tool[] = [
     steps: ["Enter the home price and down payment.", "Add the rate, term, and optional taxes and insurance.", "See the monthly payment and total interest."],
     about: "Estimates the monthly cost of a home: the loan payment itself (principal and interest) plus property tax, home insurance and HOA fees. It also shows the loan amount, total interest over the term and a yearly breakdown.",
     useCases: ["See what price range fits your budget.", "Compare a 15-year and 30-year mortgage.", "Check how a bigger down payment changes the payment."],
-    related: ["loan-calculator", "compound-interest-calculator", "percentage-calculator"],
+    related: ["mortgage-affordability-calculator", "loan-calculator", "rent-vs-buy-calculator"],
     notes: ["Taxes and insurance", "15, 20 or 30 years"],
     faqs: [
       { q: "What does the monthly payment include?", a: "Principal and interest, plus the yearly property tax and insurance divided by 12 and any monthly HOA fee you enter. It doesn't include mortgage insurance (PMI) or closing costs." },
@@ -346,7 +348,8 @@ export const moreTools: Tool[] = [
   },
   {
     slug: "compound-interest-calculator",
-    category: "calculators",
+    category: "finance",
+    group: "save",
     name: "Compound Interest Calculator",
     primaryKeyword: "compound interest calculator",
     description: "See how savings grow with compound interest and regular monthly contributions.",
@@ -358,7 +361,7 @@ export const moreTools: Tool[] = [
     steps: ["Enter a starting amount and monthly contribution.", "Enter the yearly interest rate and number of years.", "See the final balance and how much is interest."],
     about: "Shows how money grows when interest earns interest. Add a starting amount, a regular monthly contribution, a yearly rate and how often it compounds, and see the final balance, what you put in and what you earned — year by year.",
     useCases: ["Plan how much to save each month for a goal.", "See the effect of starting to invest earlier.", "Compare compounding monthly versus yearly."],
-    related: ["loan-calculator", "mortgage-calculator", "percentage-calculator"],
+    related: ["savings-goal-calculator", "retirement-calculator", "inflation-calculator"],
     notes: ["Monthly contributions", "Yearly growth chart"],
     faqs: [
       { q: "What is compound interest?", a: "Interest that's added to your balance, so the next period's interest is calculated on a bigger amount. Over long periods, this snowball effect does most of the growth." },
@@ -411,7 +414,7 @@ export const moreTools: Tool[] = [
     steps: ["Enter the bill amount.", "Pick a tip percentage.", "Split it between people and round up if you like."],
     about: "Calculates the tip on a bill and how much each person pays when you split it. Choose a common percentage with one tap, and round each share up to a whole amount to make paying easier.",
     useCases: ["Split a restaurant bill with friends.", "Check the tip for a taxi or delivery.", "Round shares so everyone pays an even amount."],
-    related: ["percentage-calculator", "loan-calculator"],
+    related: ["percentage-calculator", "finance/discount-calculator"],
     notes: ["Split the bill", "Round up"],
     faqs: [
       { q: "How much should I tip?", a: "Customs vary by country. In the US, 15–20% is usual at restaurants; in many other countries service is included or a small round-up is enough." },

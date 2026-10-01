@@ -97,6 +97,18 @@ import {
   Italic,
   FileType,
   ScanText,
+  Wallet,
+  Car,
+  TrendingDown,
+  CreditCard,
+  Target,
+  TreePalm,
+  ChartColumn,
+  Building2,
+  HousePlus,
+  Tag,
+  ChartPie,
+  ReceiptText,
   type LucideIcon,
 } from "lucide-react";
 import type { IconName } from "@/lib/catalog/lite";
@@ -203,6 +215,18 @@ const icons: Record<IconName, LucideIcon> = {
   "italic": Italic,
   "file-type": FileType,
   "scan-text": ScanText,
+  "wallet": Wallet,
+  "car": Car,
+  "trending-down": TrendingDown,
+  "credit-card": CreditCard,
+  "target": Target,
+  "palm": TreePalm,
+  "chart-column": ChartColumn,
+  "building": Building2,
+  "house-plus": HousePlus,
+  "tag": Tag,
+  "chart-pie": ChartPie,
+  "receipt-text": ReceiptText,
 };
 
 export function ToolIcon({ name, className }: { name: IconName; className?: string }) {

@@ -102,7 +102,19 @@ export type IconName =
   | "volume"
   | "italic"
   | "file-type"
-  | "scan-text";
+  | "scan-text"
+  | "wallet"
+  | "car"
+  | "trending-down"
+  | "credit-card"
+  | "target"
+  | "palm"
+  | "chart-column"
+  | "building"
+  | "house-plus"
+  | "tag"
+  | "chart-pie"
+  | "receipt-text";
 
 export type ToolStatus = "live" | "beta" | "coming-soon";
 

@@ -200,6 +200,21 @@
       "source": "/blog/page/1",
       "destination": "/blog",
       "permanent": true
+    },
+    {
+      "source": "/calculators/loan-calculator",
+      "destination": "/finance-calculators/loan-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/calculators/mortgage-calculator",
+      "destination": "/finance-calculators/mortgage-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/calculators/compound-interest-calculator",
+      "destination": "/finance-calculators/compound-interest-calculator",
+      "permanent": true
     }
   ],
   "headers": [

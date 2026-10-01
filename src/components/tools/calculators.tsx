@@ -13,19 +13,19 @@ import { Choice, FieldLabel, Toggle, useMounted } from "@/components/kit";
 import { CalcLayout, Calculation, Disclaimer, EmptyResult, NumberField, ResultGrid, ResultHero, numberError } from "@/components/calculators/calc-ui";
 import { cn } from "@/lib/utils";
 
-const NF = (digits = 2) => new Intl.NumberFormat("en-US", { minimumFractionDigits: digits, maximumFractionDigits: digits });
-const money = (n: number, sym: string) => `${n < 0 ? "−" : ""}${sym}${NF(2).format(Math.abs(n))}`;
-const whole = (n: number) => new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(n);
-const dec = (n: number, d = 1) => NF(d).format(n);
+export const NF = (digits = 2) => new Intl.NumberFormat("en-US", { minimumFractionDigits: digits, maximumFractionDigits: digits });
+export const money = (n: number, sym: string) => `${n < 0 ? "−" : ""}${sym}${NF(2).format(Math.abs(n))}`;
+export const whole = (n: number) => new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(n);
+export const dec = (n: number, d = 1) => NF(d).format(n);
 /** Parse a typed number ("1,250.50" → 1250.5); null when empty or invalid. */
-const parse = (s: string): number | null => {
+export const parse = (s: string): number | null => {
   const t = s.replace(/[,\s]/g, "");
   if (!t) return null;
   const n = Number(t);
   return Number.isFinite(n) ? n : null;
 };
 
-const CURRENCIES = [
+export const CURRENCIES = [
   { value: "$", label: "$" },
   { value: "€", label: "€" },
   { value: "£", label: "£" },
@@ -118,7 +118,7 @@ export function BmiCalculator() {
 /* ——— Loan / EMI ——— */
 
 /** Monthly payment for a fully amortizing loan. */
-function payment(principal: number, annualRate: number, months: number) {
+export function payment(principal: number, annualRate: number, months: number) {
   const r = annualRate / 100 / 12;
   if (r === 0) return principal / months;
   const f = Math.pow(1 + r, months);
@@ -126,7 +126,7 @@ function payment(principal: number, annualRate: number, months: number) {
 }
 
 /** Year-by-year schedule: interest, principal and balance. */
-function schedule(principal: number, annualRate: number, months: number, pay: number) {
+export function schedule(principal: number, annualRate: number, months: number, pay: number) {
   const r = annualRate / 100 / 12;
   const rows: { year: number; interest: number; principal: number; balance: number }[] = [];
   let bal = principal;
@@ -147,7 +147,7 @@ function schedule(principal: number, annualRate: number, months: number, pay: nu
   return rows;
 }
 
-function ScheduleTable({ rows, sym }: { rows: ReturnType<typeof schedule>; sym: string }) {
+export function ScheduleTable({ rows, sym }: { rows: ReturnType<typeof schedule>; sym: string }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="rounded-2xl border border-line bg-surface">

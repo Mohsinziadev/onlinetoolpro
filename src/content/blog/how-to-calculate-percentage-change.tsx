@@ -172,7 +172,7 @@ const content: PostContent = {
             <strong>CAGR = (end ÷ start)^(1 ÷ years) − 1</strong> → (150 ÷ 100)^(1/3) − 1 = <strong>14.5% a year</strong>.
           </p>
           <p>
-            The <Link href="/calculators/compound-interest-calculator">compound interest calculator</Link> shows the same effect going forward:
+            The <Link href="/finance-calculators/compound-interest-calculator">compound interest calculator</Link> shows the same effect going forward:
             how a yearly rate builds up over time.
           </p>
         </>
