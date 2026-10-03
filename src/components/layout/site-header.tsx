@@ -41,19 +41,31 @@ function PanelItem({
   title,
   description,
   icon,
+  count,
   onPick,
 }: {
   href: string;
   title: string;
   description?: string;
   icon?: ReactNode;
+  count?: number;
   onPick: () => void;
 }) {
   return (
     <Link href={href} onClick={onPick} className="group/item -mx-2 flex items-start gap-3.5 rounded-xl p-2 transition-colors hover:bg-bg-subtle">
       {icon}
       <span className="min-w-0">
-        <span className="block text-[16px] leading-snug text-ink transition-colors group-hover/item:text-ink">{title}</span>
+        <span className="flex items-center gap-2 text-[16px] leading-snug text-ink transition-colors group-hover/item:text-ink">
+          {title}
+          {count ? (
+            <span
+              aria-label={toolCount(count)}
+              className="inline-flex h-5 min-w-5 items-center justify-center rounded-full border border-line bg-bg-subtle px-1.5 text-[11px] font-medium tabular-nums leading-none text-ink-2 transition-colors group-hover/item:border-line-strong group-hover/item:bg-surface"
+            >
+              {count}
+            </span>
+          ) : null}
+        </span>
         {description ? <span className="mt-0.5 block text-[13px] leading-snug text-muted">{description}</span> : null}
       </span>
     </Link>
@@ -124,7 +136,8 @@ function MenuPanel({ id, close }: { id: MenuId; close: () => void }) {
                   key={c.slug}
                   href={categoryHref(c)}
                   title={c.title}
-                  description={`${toolCount(liveCount(c.slug))} · ${c.description}`}
+                  description={c.description}
+                  count={liveCount(c.slug)}
                   icon={<ToolIconTile name={c.icon} tone="tint" tint={categoryBackdrop(c).tint} />}
                   onPick={close}
                 />

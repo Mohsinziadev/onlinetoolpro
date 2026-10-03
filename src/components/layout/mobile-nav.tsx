@@ -62,6 +62,7 @@ export function MobileNav() {
                         <Link href={categoryHref(c)} className="flex items-center gap-2.5 rounded-xl border border-line bg-surface p-3 text-[15px] text-ink">
                           <ToolIcon name={c.icon} className="text-accent" />
                           <span className="min-w-0 flex-1 truncate">{c.name}</span>
+                          <span className="shrink-0 rounded-full bg-bg-subtle px-1.5 py-0.5 text-[11px] font-medium tabular-nums leading-none text-ink-2">{count}</span>
                         </Link>
                       ) : (
                         // Coming soon: shown, but there's no page to open yet.
